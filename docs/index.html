@@ -3,7 +3,7 @@
 <title>DR3-Eval</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:Inter,'Noto Sans SC',sans-serif;background:#fbfbf9;color:#202636}
@@ -48,11 +48,21 @@ body{font-family:Inter,'Noto Sans SC',sans-serif;background:#fbfbf9;color:#20263
 .htable tbody tr:hover{background:#f8fafc}
 .htable .mn{text-align:left;font-weight:600;padding-left:12px;white-space:nowrap}
 @media(max-width:768px){.ana-row{flex-direction:column}.ana-fig{max-width:100%;flex:auto}.ana-info{width:100%}}
+/* Editorial presentation layer: preserves every existing section and interaction. */
+body{background:#fffefb;color:#252936;font-family:Inter,'Noto Serif SC',sans-serif;letter-spacing:.002em}
+body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(90deg,transparent 0,transparent calc(50% - 590px),rgba(70,185,178,.08) calc(50% - 590px),rgba(70,185,178,.08) calc(50% - 589px),transparent calc(50% - 589px),transparent calc(50% + 589px),rgba(70,185,178,.08) calc(50% + 589px),rgba(70,185,178,.08) calc(50% + 590px),transparent calc(50% + 590px))}
+nav{height:68px!important;background:rgba(255,254,251,.96)!important;backdrop-filter:none!important;border-color:#e7e7e2!important}
+nav a{letter-spacing:.01em}nav a:hover{color:#2f8e89!important}.site-mark{width:27px;height:27px;display:grid;place-items:center;border:1px solid #55aaa5;color:#307f7b;font:600 10px/1 Inter,sans-serif;letter-spacing:-.04em}.site-hero{padding-top:9rem!important;padding-bottom:4.75rem!important;text-align:left!important;border-bottom:1px solid #e7e7e2}.site-hero>div{max-width:72rem!important}.site-hero h1{font-family:'Source Serif 4','Noto Serif SC',serif;font-size:clamp(3.6rem,7.2vw,6.9rem)!important;font-weight:600!important;line-height:.91;letter-spacing:-.065em}.site-hero h1 sup{font-family:Inter,sans-serif;font-size:.3em;color:#4bafa9}.site-hero .hero-sub{max-width:600px;font-family:'Source Serif 4','Noto Serif SC',serif;font-size:clamp(1.3rem,2.4vw,1.7rem)!important;line-height:1.35;color:#586274!important}.site-hero .hero-actions{justify-content:flex-start!important;gap:.45rem!important}.site-hero .hero-stats{justify-content:flex-start!important;gap:0!important;margin-top:2.6rem}.site-hero .hero-stats>div{padding:0 1.1rem;border-left:1px solid #dfe4e2}.site-hero .hero-stats>div:first-child{padding-left:0;border-left:0}.site-hero .hero-stats span{color:#2f8e89!important}
+.btn-primary,.btn-outline{border-radius:2px!important;box-shadow:none!important;font-weight:500!important;letter-spacing:.01em}.btn-primary{background:#3f9994!important}.btn-outline{border-color:#ced8d6!important;color:#3f4e59!important}.btn-primary:hover,.btn-outline:hover{transform:none!important;box-shadow:none!important;background:#347f7b!important;color:#fff!important}
+.lang-btn,.filter-btn{border-radius:2px!important;box-shadow:none!important}.lang-btn.active,.filter-btn.active{background:#3f9994!important;border-color:#3f9994!important}.lang-btn:not(.active){border-color:#d9dfdd!important}.filter-btn:hover:not(.active){background:#f3f8f7!important}
+section{border-bottom:1px solid #ecece7!important}section.bg-slate-50{background:#f8fbfa!important}.st{font-family:'Source Serif 4','Noto Serif SC',serif;font-size:2.35rem!important;font-weight:600!important;letter-spacing:-.035em;text-align:left!important}.sd{text-align:left!important;margin-left:0!important;font-size:.95rem!important;line-height:1.65;color:#697384!important}
+section .bg-white.rounded-xl,section .bg-white.rounded-2xl{border-color:#e1e4e1!important;border-radius:4px!important;box-shadow:none!important}section .shadow-sm,section .shadow-xl{box-shadow:none!important}.metric-card{border-radius:3px!important;box-shadow:none!important}.metric-card:hover{box-shadow:none!important;transform:none!important}.metric-icon{border-radius:2px!important}.fcard{border-left:0!important;border-top:2px solid #70bbb7;border-radius:0!important;background:#fff!important;padding:1rem!important}.stage-card{padding-left:1.25rem!important;border-left:1px solid #cadbd8}.stage-card::before{display:none}.ana-fig img{border-radius:2px!important}.ana-card{border-radius:2px!important;background:#fff!important;border-color:#e5e8e6!important}.ana-card h4{font-weight:600!important}.htable th,.ltable th{background:#f2f7f6!important;color:#3d7472!important}.ltable td,.htable td{border-color:#e8ecea!important}.ltable tbody tr:hover,.htable tbody tr:hover{background:#f7fbfa!important}.ltable .sep{border-color:#d9e2df!important}.best-val{color:#317e7a!important}.second-val{color:#7a87d7!important}.modal-overlay .rounded-2xl{border-radius:4px!important}.modal-overlay .shadow-xl{box-shadow:0 18px 48px rgba(30,40,55,.12)!important}
+section .bg-slate-800.text-green-400{background:#f4f7f6!important;color:#365c5a!important;border:1px solid #dde6e3;border-radius:3px!important}footer{background:#fffefb!important}
 </style></head><body>
 
 <nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur border-b border-slate-200/60">
 <div class="max-w-7xl mx-auto px-4 flex items-center justify-between h-14">
-<div class="flex items-center gap-2"><div class="w-7 h-7 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center font-bold text-white text-xs">D3</div><span class="font-bold text-lg">DR&sup3;-Eval</span></div>
+<div class="flex items-center gap-2"><div class="site-mark">DR³</div><span class="font-bold text-lg">DR&sup3;-Eval</span></div>
 <div class="hidden md:flex items-center gap-5 text-sm font-medium text-slate-600">
 <a href="#statistics">Statistics</a>
 <a href="#metrics">Metrics</a>
@@ -64,17 +74,17 @@ body{font-family:Inter,'Noto Sans SC',sans-serif;background:#fbfbf9;color:#20263
 </div></nav>
 
 <!-- Hero -->
-<section class="pt-28 pb-14 px-4 text-center"><div class="max-w-3xl mx-auto">
+<section class="site-hero pt-28 pb-14 px-4 text-center"><div class="max-w-3xl mx-auto">
 <h1 class="text-4xl md:text-5xl font-bold mb-3">DR<sup>3</sup>-Eval</h1>
-<p class="text-lg text-slate-500 mb-8" data-i18n="hero_subtitle">Towards Realistic and Reproducible Deep Research Evaluation</p>
-<div class="flex justify-center gap-3 mb-6">
+<p class="hero-sub text-lg text-slate-500 mb-8" data-i18n="hero_subtitle">Towards Realistic and Reproducible Deep Research Evaluation</p>
+<div class="hero-actions flex justify-center gap-3 mb-6">
 <a href="#leaderboard" class="btn-primary px-4 py-2 rounded-full text-sm font-semibold inline-flex items-center gap-1.5">&#x1F3C6; Leaderboard</a>
 <a href="https://arxiv.org/abs/2604.14683" target="_blank" class="btn-outline px-4 py-2 rounded-full text-sm font-semibold inline-flex items-center gap-1.5">&#x1F4C4; Arxiv</a>
 <a href="https://huggingface.co/papers/2604.14683" target="_blank" class="btn-outline px-4 py-2 rounded-full text-sm font-semibold inline-flex items-center gap-1.5">&#x1F917; HF Paper</a>
 <a href="https://github.com/NJU-LINK/DR3-Eval" target="_blank" class="btn-outline px-4 py-2 rounded-full text-sm font-semibold inline-flex items-center gap-1.5">&#x1F4BB; GitHub</a>
 <a href="https://huggingface.co/datasets/NJU-LINK/DR3-Eval" target="_blank" class="btn-outline px-4 py-2 rounded-full text-sm font-semibold inline-flex items-center gap-1.5">&#x1F917; Dataset</a>
 </div>
-<div class="flex flex-wrap justify-center gap-6 text-sm text-slate-500">
+<div class="hero-stats flex flex-wrap justify-center gap-6 text-sm text-slate-500">
 <div><span class="font-bold text-slate-800 text-lg">100</span> Tasks</div>
 <div><span class="font-bold text-slate-800 text-lg">13</span> Sub-domains</div>
 <div><span class="font-bold text-slate-800 text-lg">68%</span> Multimodal</div>
@@ -319,6 +329,15 @@ function filterScale(scale, btn) {
 }
 
 document.addEventListener('DOMContentLoaded', function(){
+  function stripDecorativeEmoji(root){
+    var emoji=/[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE0F}]/gu;
+    var walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);
+    var node;
+    while(node=walker.nextNode()) node.nodeValue=node.nodeValue.replace(emoji,'').replace(/\s{2,}/g,' ');
+  }
+  stripDecorativeEmoji(document.body);
+  var originalSetLang=window.setLang;
+  window.setLang=function(lang){originalSetLang(lang);stripDecorativeEmoji(document.body)};
   function rgbToHsl(r,g,b){r/=255;g/=255;b/=255;var mx=Math.max(r,g,b),mn=Math.min(r,g,b),h,s,l=(mx+mn)/2;if(mx===mn){h=s=0}else{var d=mx-mn;s=l>.5?d/(2-mx-mn):d/(mx+mn);switch(mx){case r:h=(g-b)/d+(g<b?6:0);break;case g:h=(b-r)/d+2;break;case b:h=(r-g)/d+4;break}h/=6}return[Math.round(h*360),Math.round(s*100),Math.round(l*100)]}
   function radialColor(hsl,i,t){var l=hsl[2]+(i/(t-1))*28;return'hsl('+hsl[0]+','+hsl[1]+'%,'+Math.min(l,92)+'%)'}
   function wrapLabel(n,m){m=m||12;var w=n.split(' '),l='',r='';w.forEach(function(x){if((l+x).length>m){r+=l.trim()+'\n';l=x+' '}else{l+=x+' '}});r+=l.trim();return r}
