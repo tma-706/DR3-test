@@ -1,0 +1,64 @@
+{
+  "checklist": [
+    {
+      "id": 1,
+      "requirement": "Cite online harassment illustration",
+      "category": "evidence"
+    },
+    {
+      "id": 2,
+      "requirement": "Cite cyberbullying statistics",
+      "category": "evidence"
+    },
+    {
+      "id": 3,
+      "requirement": "Cite group influence study",
+      "category": "evidence"
+    },
+    {
+      "id": 4,
+      "requirement": "Explain relevant cyberbullying laws",
+      "category": "content"
+    },
+    {
+      "id": 5,
+      "requirement": "Describe required school actions",
+      "category": "content"
+    },
+    {
+      "id": 6,
+      "requirement": "List parent prevention methods",
+      "category": "content"
+    },
+    {
+      "id": 7,
+      "requirement": "Detail social media settings",
+      "category": "content"
+    },
+    {
+      "id": 8,
+      "requirement": "Outline teen psychological impacts",
+      "category": "content"
+    },
+    {
+      "id": 9,
+      "requirement": "Link laws to school duties",
+      "category": "analysis"
+    },
+    {
+      "id": 10,
+      "requirement": "Assess prevention method effectiveness",
+      "category": "analysis"
+    },
+    {
+      "id": 11,
+      "requirement": "Synthesize all provided materials",
+      "category": "analysis"
+    },
+    {
+      "id": 12,
+      "requirement": "Provide actionable solutions",
+      "category": "conclusion"
+    }
+  ]
+}

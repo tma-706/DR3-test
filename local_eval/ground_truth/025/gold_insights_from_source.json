@@ -1,0 +1,28 @@
+{
+  "gold_insights": [
+    {
+      "insight": "Emphasizes A/B testing and data analysis for feature optimization",
+      "source": "48.docx"
+    },
+    {
+      "insight": "Lists SQL, Python, and Figma as core technical skills",
+      "source": "48.docx"
+    },
+    {
+      "insight": "Recommends STAR method for behavioral question responses",
+      "source": "48.txt"
+    },
+    {
+      "insight": "Utilizes stepwise population breakdown for market sizing",
+      "source": "48.txt"
+    },
+    {
+      "insight": "Requires five years product management or development experience.",
+      "source": "tex.pdf"
+    },
+    {
+      "insight": "Emphasizes influencing stakeholders without direct managerial authority.",
+      "source": "tex.pdf"
+    }
+  ]
+}

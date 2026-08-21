@@ -1,0 +1,28 @@
+{
+  "gold_insights": [
+    {
+      "insight": "Area median income establishes the baseline for calculating income limits.",
+      "source": "4.csv"
+    },
+    {
+      "insight": "Tiers set thresholds at thirty, fifty, or eighty percent of base income.",
+      "source": "4.csv"
+    },
+    {
+      "insight": "Eligibility depends on US citizenship, eligible non-limit status, and AMI.",
+      "source": "Generated Image January.png"
+    },
+    {
+      "insight": "Income tiers are defined by percentages of Area Median Income (AMI).",
+      "source": "Generated Image January.png"
+    },
+    {
+      "insight": "Uses 2023 American Community Survey median family income data as primary basis.",
+      "source": "HUD-sec8-FY25.pdf"
+    },
+    {
+      "insight": "Sets eligibility thresholds at fifty, eighty, and thirty percent of area medians.",
+      "source": "HUD-sec8-FY25.pdf"
+    }
+  ]
+}

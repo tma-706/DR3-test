@@ -1,0 +1,64 @@
+{
+  "checklist": [
+    {
+      "id": 1,
+      "requirement": "Cite Tesla specifications from attachments.",
+      "category": "evidence"
+    },
+    {
+      "id": 2,
+      "requirement": "Reference charging list details.",
+      "category": "evidence"
+    },
+    {
+      "id": 3,
+      "requirement": "Summarize current EV market status.",
+      "category": "content"
+    },
+    {
+      "id": 4,
+      "requirement": "Compare EV emissions to gasoline cars.",
+      "category": "comparison"
+    },
+    {
+      "id": 5,
+      "requirement": "Evaluate overall environmental benefits of EVs.",
+      "category": "analysis"
+    },
+    {
+      "id": 6,
+      "requirement": "Project future EV market trends.",
+      "category": "analysis"
+    },
+    {
+      "id": 7,
+      "requirement": "List actual government EV incentives.",
+      "category": "content"
+    },
+    {
+      "id": 8,
+      "requirement": "Clarify eligibility for tax credits.",
+      "category": "content"
+    },
+    {
+      "id": 9,
+      "requirement": "Identify common owner complaints.",
+      "category": "content"
+    },
+    {
+      "id": 10,
+      "requirement": "Analyze EV range limitations.",
+      "category": "analysis"
+    },
+    {
+      "id": 11,
+      "requirement": "Assess battery degradation risks.",
+      "category": "analysis"
+    },
+    {
+      "id": 12,
+      "requirement": "Conclude on overall EV ownership viability.",
+      "category": "conclusion"
+    }
+  ]
+}

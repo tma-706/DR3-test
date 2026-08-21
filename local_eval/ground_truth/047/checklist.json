@@ -1,0 +1,54 @@
+{
+  "checklist": [
+    {
+      "id": 1,
+      "requirement": "Reference attached 2022 heat records.",
+      "category": "evidence"
+    },
+    {
+      "id": 2,
+      "requirement": "Reference attached 2022 flood impacts.",
+      "category": "evidence"
+    },
+    {
+      "id": 3,
+      "requirement": "Reference attached 2022 glacier melt data.",
+      "category": "evidence"
+    },
+    {
+      "id": 4,
+      "requirement": "Describe future European climate projections.",
+      "category": "content"
+    },
+    {
+      "id": 5,
+      "requirement": "Analyze Alpine water management challenges.",
+      "category": "analysis"
+    },
+    {
+      "id": 6,
+      "requirement": "Assess agricultural drought resilience factors.",
+      "category": "analysis"
+    },
+    {
+      "id": 7,
+      "requirement": "Evaluate heatwave public health impacts.",
+      "category": "analysis"
+    },
+    {
+      "id": 8,
+      "requirement": "Estimate flood economic damage costs.",
+      "category": "analysis"
+    },
+    {
+      "id": 9,
+      "requirement": "Connect historical extremes to future trends.",
+      "category": "analysis"
+    },
+    {
+      "id": 10,
+      "requirement": "Propose regional climate adaptation strategies.",
+      "category": "conclusion"
+    }
+  ]
+}

@@ -218,6 +218,7 @@ class OverallQualityEvaluator(BaseEvaluator):
                 result = self.llm.call(
                     system="You are an expert evaluator focusing on deep research report quality.",
                     user=prompt,
+                    json_mode=False,
                 )
                 
                 scoring_result = result.get("text", "") if result else ""

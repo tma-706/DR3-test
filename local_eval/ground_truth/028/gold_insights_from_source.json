@@ -1,0 +1,28 @@
+{
+  "gold_insights": [
+    {
+      "insight": "Photo shows a 15 kW array, conflicting with the 6kW document description.",
+      "source": "51.png"
+    },
+    {
+      "insight": "System uses a SolarEdge Inverter for monitoring and main electrical panel connection.",
+      "source": "51.png"
+    },
+    {
+      "insight": "Six kilowatt system achieves 11.6 percent internal rate of return.",
+      "source": "51.xlsx"
+    },
+    {
+      "insight": "Eight point seven year payback period follows government incentive.",
+      "source": "51.xlsx"
+    },
+    {
+      "insight": "GreenGrid Energy Solutions published this residential solar guide in January 2026.",
+      "source": "tex.pdf"
+    },
+    {
+      "insight": "Six kilowatt residential solar installations cost approximately sixteen thousand five hundred dollars.",
+      "source": "tex.pdf"
+    }
+  ]
+}

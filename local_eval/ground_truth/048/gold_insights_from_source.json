@@ -1,0 +1,28 @@
+{
+  "gold_insights": [
+    {
+      "insight": "WHO and GISRS continuously monitor global influenza virus activity.",
+      "source": "Advice.pdf"
+    },
+    {
+      "insight": "Effectiveness measured via early estimates of hospital attendance prevention.",
+      "source": "Advice.pdf"
+    },
+    {
+      "insight": "Global H3N2 percent positivity is mapped for epidemiological week 48 of 2025.",
+      "source": "Influenza A(H3N2) percent positivity reported for epidemiological week 48 (24 to 30 November) 2025.png"
+    },
+    {
+      "insight": "Data gaps exist for regions marked 'Not reported' or 'No information'.",
+      "source": "Influenza A(H3N2) percent positivity reported for epidemiological week 48 (24 to 30 November) 2025.png"
+    },
+    {
+      "insight": "GISRS coordinates global surveillance using GISAID genetic sequence data.",
+      "source": "Seasonal influenza - Global situation.pdf"
+    },
+    {
+      "insight": "Vaccines protect against severe illness despite circulating virus genetic drift.",
+      "source": "Seasonal influenza - Global situation.pdf"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "gold_insights": [
+    {
+      "insight": "Diabetes food plate recommends half non-starchy vegetables per meal.",
+      "source": "31.png"
+    },
+    {
+      "insight": "Meal plan includes quarter lean protein and quarter healthy carbs.",
+      "source": "31.png"
+    },
+    {
+      "insight": "Covers screening, diagnosis, and treatment across all age groups",
+      "source": "dc26sint.pdf"
+    },
+    {
+      "insight": "Relies on systematic literature reviews and expert consensus",
+      "source": "dc26sint.pdf"
+    }
+  ]
+}

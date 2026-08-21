@@ -1,0 +1,24 @@
+{
+  "gold_insights": [
+    {
+      "insight": "The illustration depicts cyberbullying with negative comments like 'loser' and 'ugly'.",
+      "source": "bully.webp"
+    },
+    {
+      "insight": "Mild social influence reduces group diversity without improving accuracy.",
+      "source": "How_social_influence_can_undermine_the_wisdom_of_c.pdf"
+    },
+    {
+      "insight": "Opinion convergence boosts individual confidence despite lacking accuracy improvements.",
+      "source": "How_social_influence_can_undermine_the_wisdom_of_c.pdf"
+    },
+    {
+      "insight": "Presents 8 key cyberbullying statistics including US laws and Indian cyberbullying.",
+      "source": "statics.webp"
+    },
+    {
+      "insight": "Statistics cover cyberbullying methods and prevalence on Facebook among American teens.",
+      "source": "statics.webp"
+    }
+  ]
+}

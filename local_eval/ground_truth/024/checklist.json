@@ -1,0 +1,64 @@
+{
+  "checklist": [
+    {
+      "id": 1,
+      "requirement": "Cite prediction.csv financial assumptions.",
+      "category": "evidence"
+    },
+    {
+      "id": 2,
+      "requirement": "Reference tex.pdf market outline.",
+      "category": "evidence"
+    },
+    {
+      "id": 3,
+      "requirement": "Describe current AI business landscape.",
+      "category": "content"
+    },
+    {
+      "id": 4,
+      "requirement": "Present simple market overview.",
+      "category": "content"
+    },
+    {
+      "id": 5,
+      "requirement": "List example AI competitors.",
+      "category": "content"
+    },
+    {
+      "id": 6,
+      "requirement": "Provide market health data.",
+      "category": "evidence"
+    },
+    {
+      "id": 7,
+      "requirement": "Analyze market growth trends.",
+      "category": "analysis"
+    },
+    {
+      "id": 8,
+      "requirement": "Identify upcoming economic factors.",
+      "category": "content"
+    },
+    {
+      "id": 9,
+      "requirement": "Note relevant regulatory changes.",
+      "category": "content"
+    },
+    {
+      "id": 10,
+      "requirement": "Validate financial projection assumptions.",
+      "category": "analysis"
+    },
+    {
+      "id": 11,
+      "requirement": "Align insights with pitch goals.",
+      "category": "analysis"
+    },
+    {
+      "id": 12,
+      "requirement": "Flag major industry risks.",
+      "category": "content"
+    }
+  ]
+}

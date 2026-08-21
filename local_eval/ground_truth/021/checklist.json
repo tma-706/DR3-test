@@ -1,0 +1,54 @@
+{
+  "checklist": [
+    {
+      "id": 1,
+      "requirement": "Cite compliance checklist details.",
+      "category": "evidence"
+    },
+    {
+      "id": 2,
+      "requirement": "Cite fine structure file data.",
+      "category": "evidence"
+    },
+    {
+      "id": 3,
+      "requirement": "Outline main GDPR obligations.",
+      "category": "content"
+    },
+    {
+      "id": 4,
+      "requirement": "Summarize core data handling rules.",
+      "category": "content"
+    },
+    {
+      "id": 5,
+      "requirement": "Explain user request procedures.",
+      "category": "content"
+    },
+    {
+      "id": 6,
+      "requirement": "Describe cross-border transfer procedures.",
+      "category": "content"
+    },
+    {
+      "id": 7,
+      "requirement": "Cite criminal penalty references.",
+      "category": "evidence"
+    },
+    {
+      "id": 8,
+      "requirement": "Identify violations causing criminal penalties.",
+      "category": "content"
+    },
+    {
+      "id": 9,
+      "requirement": "Analyze penalty severity implications.",
+      "category": "analysis"
+    },
+    {
+      "id": 10,
+      "requirement": "Connect fines to specific breaches.",
+      "category": "analysis"
+    }
+  ]
+}

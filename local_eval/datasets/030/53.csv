@@ -1,0 +1,9 @@
+Station_ID,City,Latitude,Longitude,Charger_Type,Power_kW
+CS-001,San Francisco,37.7749,-122.4194,DC Fast,150
+CS-002,San Francisco,37.7842,-122.4016,Level 2,22
+CS-003,Los Angeles,34.0522,-118.2437,DC Fast,250
+CS-004,Los Angeles,34.0407,-118.2468,Level 2,11
+CS-005,New York,40.7128,-74.0060,DC Fast,150
+CS-006,New York,40.7306,-73.9866,Level 2,22
+CS-007,Chicago,41.8781,-87.6298,DC Fast,120
+CS-008,Chicago,41.8853,-87.6216,Level 2,11

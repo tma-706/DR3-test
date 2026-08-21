@@ -1,0 +1,24 @@
+{
+  "gold_insights": [
+    {
+      "insight": "Shows the natural mineral form of perovskite.",
+      "source": "img.jpg"
+    },
+    {
+      "insight": "Certified 17.2% total-area efficiency achieved on 7200 square centimeter modules.",
+      "source": "Improved-solvent-systems-for-commercially-viable-perovskite-photovoltaic-modules.pdf"
+    },
+    {
+      "insight": "Surfactant TAC eliminates edge defects ensuring IEC 61215 reliability certification.",
+      "source": "Improved-solvent-systems-for-commercially-viable-perovskite-photovoltaic-modules.pdf"
+    },
+    {
+      "insight": "Ideal perovskite crystal structure comprises Sr, Ti, and O atoms.",
+      "source": "structure.webp"
+    },
+    {
+      "insight": "The legend identifies Strontium, Titanium, and Oxygen as key components.",
+      "source": "structure.webp"
+    }
+  ]
+}

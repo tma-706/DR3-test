@@ -1,0 +1,64 @@
+{
+  "checklist": [
+    {
+      "id": 1,
+      "requirement": "Cite MERS case table data.",
+      "category": "evidence"
+    },
+    {
+      "id": 2,
+      "requirement": "Cite WHO report statistics.",
+      "category": "evidence"
+    },
+    {
+      "id": 3,
+      "requirement": "Provide a structured medical overview.",
+      "category": "content"
+    },
+    {
+      "id": 4,
+      "requirement": "List factors affecting patient survival.",
+      "category": "content"
+    },
+    {
+      "id": 5,
+      "requirement": "Describe standard diagnostic procedures.",
+      "category": "content"
+    },
+    {
+      "id": 6,
+      "requirement": "Outline current clinical treatment approaches.",
+      "category": "content"
+    },
+    {
+      "id": 7,
+      "requirement": "Analyze viral genome sequencing insights.",
+      "category": "analysis"
+    },
+    {
+      "id": 8,
+      "requirement": "Reference French case sequencing results.",
+      "category": "evidence"
+    },
+    {
+      "id": 9,
+      "requirement": "Report ongoing vaccine development status.",
+      "category": "content"
+    },
+    {
+      "id": 10,
+      "requirement": "Compare survival outcomes across groups.",
+      "category": "comparison"
+    },
+    {
+      "id": 11,
+      "requirement": "Assess overall disease severity trends.",
+      "category": "analysis"
+    },
+    {
+      "id": 12,
+      "requirement": "Conclude on primary care priorities.",
+      "category": "conclusion"
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "checklist": [
+    {
+      "id": 1,
+      "requirement": "Reference attached waste ordinance",
+      "category": "content"
+    },
+    {
+      "id": 2,
+      "requirement": "Reference attached collection schedule",
+      "category": "content"
+    },
+    {
+      "id": 3,
+      "requirement": "Analyze general program effectiveness",
+      "category": "analysis"
+    },
+    {
+      "id": 4,
+      "requirement": "Cite recycling success data",
+      "category": "evidence"
+    },
+    {
+      "id": 5,
+      "requirement": "Describe organic waste treatment methods",
+      "category": "content"
+    },
+    {
+      "id": 6,
+      "requirement": "Explain collection route optimization",
+      "category": "analysis"
+    },
+    {
+      "id": 7,
+      "requirement": "Cite route planning tools",
+      "category": "evidence"
+    },
+    {
+      "id": 8,
+      "requirement": "List common recycling failure reasons",
+      "category": "content"
+    },
+    {
+      "id": 9,
+      "requirement": "Analyze contamination impact factors",
+      "category": "analysis"
+    },
+    {
+      "id": 10,
+      "requirement": "Compare four-bin to traditional systems",
+      "category": "comparison"
+    },
+    {
+      "id": 11,
+      "requirement": "Conclude on system viability",
+      "category": "conclusion"
+    },
+    {
+      "id": 12,
+      "requirement": "Connect analysis to local context",
+      "category": "analysis"
+    }
+  ]
+}

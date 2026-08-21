@@ -1,0 +1,64 @@
+{
+  "checklist": [
+    {
+      "id": 1,
+      "requirement": "Reference attached policy documents",
+      "category": "evidence"
+    },
+    {
+      "id": 2,
+      "requirement": "Prioritize practical implementation over strategy",
+      "category": "content"
+    },
+    {
+      "id": 3,
+      "requirement": "Provide specific classroom change examples",
+      "category": "evidence"
+    },
+    {
+      "id": 4,
+      "requirement": "Describe blended online and offline methods",
+      "category": "content"
+    },
+    {
+      "id": 5,
+      "requirement": "Explain teacher training programs for digital tools",
+      "category": "content"
+    },
+    {
+      "id": 6,
+      "requirement": "Assess actual impact on student learning",
+      "category": "analysis"
+    },
+    {
+      "id": 7,
+      "requirement": "Mention adaptive learning software examples",
+      "category": "content"
+    },
+    {
+      "id": 8,
+      "requirement": "Describe virtual reality classroom applications",
+      "category": "content"
+    },
+    {
+      "id": 9,
+      "requirement": "Ground all examples in Chinese schools",
+      "category": "content"
+    },
+    {
+      "id": 10,
+      "requirement": "Connect digital tools to teaching methods",
+      "category": "analysis"
+    },
+    {
+      "id": 11,
+      "requirement": "Cite data on student performance changes",
+      "category": "evidence"
+    },
+    {
+      "id": 12,
+      "requirement": "Summarize key practical outcomes found",
+      "category": "conclusion"
+    }
+  ]
+}

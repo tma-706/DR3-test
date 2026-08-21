@@ -1,0 +1,28 @@
+{
+  "gold_insights": [
+    {
+      "insight": "DC fast chargers offer up to 250 kW power capacity.",
+      "source": "53.csv"
+    },
+    {
+      "insight": "Level 2 chargers consistently provide 11 to 22 kW output.",
+      "source": "53.csv"
+    },
+    {
+      "insight": "Federal tax credit requires North American vehicle assembly.",
+      "source": "53.docx"
+    },
+    {
+      "insight": "State incentives offer purchase rebates and HOV lane access.",
+      "source": "53.docx"
+    },
+    {
+      "insight": "Tesla Model 3 features 272-mile EPA estimated driving range.",
+      "source": "tex.pdf"
+    },
+    {
+      "insight": "DC fast charging reaches 10-80% battery level in 25 minutes.",
+      "source": "tex.pdf"
+    }
+  ]
+}

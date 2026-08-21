@@ -1,0 +1,54 @@
+{
+  "checklist": [
+    {
+      "id": 1,
+      "requirement": "Cite WHO report findings",
+      "category": "evidence"
+    },
+    {
+      "id": 2,
+      "requirement": "Reference current flu map data",
+      "category": "evidence"
+    },
+    {
+      "id": 3,
+      "requirement": "Describe global H3N2 tracking methods",
+      "category": "content"
+    },
+    {
+      "id": 4,
+      "requirement": "Explain vaccine strain selection process",
+      "category": "content"
+    },
+    {
+      "id": 5,
+      "requirement": "Detail annual vaccine update procedures",
+      "category": "content"
+    },
+    {
+      "id": 6,
+      "requirement": "Outline vaccine efficacy measurement metrics",
+      "category": "content"
+    },
+    {
+      "id": 7,
+      "requirement": "Analyze protection levels against variants",
+      "category": "analysis"
+    },
+    {
+      "id": 8,
+      "requirement": "Describe seasonal outbreak prediction models",
+      "category": "content"
+    },
+    {
+      "id": 9,
+      "requirement": "Identify key surveillance system limitations",
+      "category": "content"
+    },
+    {
+      "id": 10,
+      "requirement": "Discuss global coordination challenges",
+      "category": "content"
+    }
+  ]
+}

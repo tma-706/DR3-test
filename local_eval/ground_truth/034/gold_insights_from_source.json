@@ -1,0 +1,28 @@
+{
+  "gold_insights": [
+    {
+      "insight": "Veterans Curry, Thompson, and Paul exceed age 33.",
+      "source": "57.csv"
+    },
+    {
+      "insight": "Young players Kuminga and Podziemski average over 16 points.",
+      "source": "57.csv"
+    },
+    {
+      "insight": "Source is Stephen Curry's 2023-2024 season shot chart heatmap.",
+      "source": "57.png"
+    },
+    {
+      "insight": "Chart highlights heavy three-point and mid-range volume reflecting league trends.",
+      "source": "57.png"
+    },
+    {
+      "insight": "Aging core maintains offensive competitiveness.",
+      "source": "tex.pdf"
+    },
+    {
+      "insight": "Jonathan Kuminga emerges as reliable young scorer.",
+      "source": "tex.pdf"
+    }
+  ]
+}

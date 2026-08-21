@@ -1,0 +1,54 @@
+{
+  "checklist": [
+    {
+      "id": 1,
+      "requirement": "Cite attached warming data",
+      "category": "evidence"
+    },
+    {
+      "id": 2,
+      "requirement": "Confirm 1.5°C temperature rise",
+      "category": "content"
+    },
+    {
+      "id": 3,
+      "requirement": "Provide human emission evidence",
+      "category": "evidence"
+    },
+    {
+      "id": 4,
+      "requirement": "Contrast with natural cycles",
+      "category": "comparison"
+    },
+    {
+      "id": 5,
+      "requirement": "Identify dangerous climate thresholds",
+      "category": "content"
+    },
+    {
+      "id": 6,
+      "requirement": "Assess irreversible damage potential",
+      "category": "analysis"
+    },
+    {
+      "id": 7,
+      "requirement": "Detail food supply impacts",
+      "category": "content"
+    },
+    {
+      "id": 8,
+      "requirement": "Outline economic consequences",
+      "category": "content"
+    },
+    {
+      "id": 9,
+      "requirement": "Summarize global climate talks",
+      "category": "content"
+    },
+    {
+      "id": 10,
+      "requirement": "Link human activity to warming",
+      "category": "analysis"
+    }
+  ]
+}

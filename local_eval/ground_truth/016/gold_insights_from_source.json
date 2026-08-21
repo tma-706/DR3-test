@@ -1,0 +1,12 @@
+{
+  "gold_insights": [
+    {
+      "insight": "Harvard annual grand total cost reaches $102,100 for all student expenses.",
+      "source": "harvard.csv"
+    },
+    {
+      "insight": "Families earning under $85,000 receive full scholarships with zero parental contribution.",
+      "source": "harvard.csv"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "gold_insights": [
+    {
+      "insight": "Maintains consistent 74% gross margin throughout the projection period.",
+      "source": "prediction.csv"
+    },
+    {
+      "insight": "Shifts from net loss to operational profitability beginning in 2025.",
+      "source": "prediction.csv"
+    },
+    {
+      "insight": "IBM, Google, Microsoft, and Amazon lead large enterprise AI platforms.",
+      "source": "tex.pdf"
+    },
+    {
+      "insight": "Trends highlight Explainable AI, Edge AI, AIaaS, and Hybrid AI models.",
+      "source": "tex.pdf"
+    }
+  ]
+}

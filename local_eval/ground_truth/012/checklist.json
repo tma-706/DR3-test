@@ -1,0 +1,59 @@
+{
+  "checklist": [
+    {
+      "id": 1,
+      "requirement": "Mention HUD notice context.",
+      "category": "content"
+    },
+    {
+      "id": 2,
+      "requirement": "Cite sample data table.",
+      "category": "evidence"
+    },
+    {
+      "id": 3,
+      "requirement": "Reference application flowchart.",
+      "category": "evidence"
+    },
+    {
+      "id": 4,
+      "requirement": "Explain income limit calculation method.",
+      "category": "analysis"
+    },
+    {
+      "id": 5,
+      "requirement": "Identify primary data sources used.",
+      "category": "content"
+    },
+    {
+      "id": 6,
+      "requirement": "Define affordability by geographic area.",
+      "category": "content"
+    },
+    {
+      "id": 7,
+      "requirement": "State general qualification rules.",
+      "category": "content"
+    },
+    {
+      "id": 8,
+      "requirement": "Cite official government sources.",
+      "category": "evidence"
+    },
+    {
+      "id": 9,
+      "requirement": "Link methodology to federal guidelines.",
+      "category": "analysis"
+    },
+    {
+      "id": 10,
+      "requirement": "Clarify regional adjustment factors.",
+      "category": "content"
+    },
+    {
+      "id": 11,
+      "requirement": "Summarize determination process.",
+      "category": "analysis"
+    }
+  ]
+}

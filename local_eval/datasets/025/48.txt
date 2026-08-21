@@ -1,0 +1,69 @@
+产品经理面试常见问题及准备：
+
+**一、行为问题 (Behavioral Questions)**
+
+1.  **"Tell me about yourself." (请介绍一下你自己。)**
+    *   准备一个30-60秒的电梯演讲，涵盖你的背景、相关经验、成就以及你为什么对这个职位感兴趣。
+
+2.  **"Why product management?" (你为什么选择产品管理？)**
+    *   谈论你对解决问题、用户体验、技术和业务结合的热情。
+
+3.  **"Why Google / Why our company?" (为什么选择Google / 为什么选择我们公司？)**
+    *   研究公司使命、产品、文化和最近的新闻。结合你的价值观和职业目标。
+
+4.  **"Tell me about a time you failed." (讲一个你失败的经历。)**
+    *   选择一个真实的失败，描述情况、你的角色、你学到了什么以及如何应用这些教训。
+
+5.  **"Tell me about a conflict you had with an engineer/designer." (讲一个你与工程师/设计师发生冲突的经历。)**
+    *   强调你如何通过沟通、理解对方观点和寻找共同点来解决问题。
+
+6.  **"How do you prioritize features?" (你如何进行功能优先级排序？)**
+    *   讨论你的框架（例如：RICE, MoSCoW, KANO模型），并结合用户价值、业务影响、技术可行性和战略一致性。
+
+**二、产品策略与设计问题 (Product Strategy & Design Questions)**
+
+1.  **"What's your favorite product and why?" (你最喜欢的产品是什么？为什么？)**
+    *   选择一个你真正理解并欣赏的产品，从用户体验、商业模式、技术实现等方面深入分析。
+
+2.  **"How would you improve [特定产品]?" (你会如何改进[特定产品]？)**
+    *   遵循一个结构化方法：明确目标用户 -> 识别痛点 -> 提出解决方案（功能） -> 考虑衡量指标和潜在挑战。
+
+3.  **"Design a product for [特定用户/场景]." (为[特定用户/场景]设计一个产品。)**
+    *   明确用户、需求、痛点、潜在解决方案、核心功能、最小可行产品（MVP）、成功指标。
+
+4.  **"How do you measure the success of [产品/功能]?" (你如何衡量[产品/功能]的成功？)**
+    *   定义关键绩效指标（KPIs），并解释为什么这些指标是重要的。
+
+5.  **"Should Google build a [新产品]?" (Google应该建造一个[新产品]吗？)**
+    *   分析市场机会、潜在用户、竞争格局、Google的优势和劣势、技术可行性、商业价值。
+
+**三、技术与执行问题 (Technical & Execution Questions)**
+
+1.  **"Explain [技术概念，例如：API, Machine Learning] to a non-technical person." (向非技术人员解释[技术概念]。)**
+    *   用简洁、易懂的语言和类比来解释复杂概念。
+
+2.  **"How do you work with engineering teams?" (你如何与工程团队合作？)**
+    *   强调沟通、信任、共同目标、理解技术限制和提供清晰的需求。
+
+3.  **"Describe the product development lifecycle." (描述产品开发生命周期。)**
+    *   从需求发现到发布、迭代和退役的各个阶段。
+
+4.  **"You've just launched a product, and the key metric is down. What do you do?" (你刚刚发布了一个产品，但关键指标下降了。你会怎么做？)**
+    *   系统性地排查问题：检查数据准确性 -> 确认A/B测试结果 -> 收集用户反馈 -> 深入分析可能原因 -> 制定行动计划。
+
+**四、估算/市场规模问题 (Estimation/Market Sizing Questions)**
+
+1.  **"How many Google Maps directions are requested in a day?" (Google地图每天有多少次路线请求？)**
+    *   使用分步拆解法，从大数字开始逐步缩小（例如：全球人口 -> 智能手机用户 -> Google地图用户 -> 每天使用频率）。
+
+**准备策略：**
+
+*   **STAR法则**: 回答行为问题时，使用 **S**ituation (情境), **T**ask (任务), **A**ction (行动), **R**esult (结果) 的结构。
+*   **结构化思考**: 对于开放性问题，始终先给出你的思考框架，再填充细节。
+*   **提前研究**: 深入了解公司、产品和职位要求。
+*   **准备问题**: 面试结束时，准备3-5个有深度的问题提问面试官。
+*   **模拟面试**: 进行多次模拟面试，录音或录像，以便回顾和改进。
+*   **关注用户**: 任何产品问题，都要以用户为中心进行思考。
+*   **数据驱动**: 强调你如何使用数据来做决策和衡量成功。
+
+祝你面试顺利！

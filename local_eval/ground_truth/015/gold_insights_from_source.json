@@ -1,0 +1,20 @@
+{
+  "gold_insights": [
+    {
+      "insight": "Green, grey, blue, and red bins designate specific waste streams.",
+      "source": "8.txt"
+    },
+    {
+      "insight": "Kitchen waste requires three weekly pickups across Monday, Wednesday, and Friday.",
+      "source": "8.txt"
+    },
+    {
+      "insight": "Mandates four legally binding color-coded waste separation streams.",
+      "source": "tex.pdf"
+    },
+    {
+      "insight": "Enforces strict 6:00 AM to 8:00 AM curb-side placement window.",
+      "source": "tex.pdf"
+    }
+  ]
+}

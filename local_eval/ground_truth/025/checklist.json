@@ -1,0 +1,64 @@
+{
+  "checklist": [
+    {
+      "id": 1,
+      "requirement": "Cite tex.pdf content",
+      "category": "evidence"
+    },
+    {
+      "id": 2,
+      "requirement": "Incorporate 48.txt details",
+      "category": "evidence"
+    },
+    {
+      "id": 3,
+      "requirement": "Incorporate 48.docx details",
+      "category": "evidence"
+    },
+    {
+      "id": 4,
+      "requirement": "Address past experience questions",
+      "category": "content"
+    },
+    {
+      "id": 5,
+      "requirement": "Address estimation questions",
+      "category": "content"
+    },
+    {
+      "id": 6,
+      "requirement": "Provide practice resources",
+      "category": "content"
+    },
+    {
+      "id": 7,
+      "requirement": "Cite other tech company examples",
+      "category": "evidence"
+    },
+    {
+      "id": 8,
+      "requirement": "Compare industry PM expectations",
+      "category": "comparison"
+    },
+    {
+      "id": 9,
+      "requirement": "Outline general PM expectations",
+      "category": "analysis"
+    },
+    {
+      "id": 10,
+      "requirement": "Align advice with Google role",
+      "category": "analysis"
+    },
+    {
+      "id": 11,
+      "requirement": "Structure responses for practice",
+      "category": "analysis"
+    },
+    {
+      "id": 12,
+      "requirement": "Cover common question types",
+      "category": "content"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "checklist": [
+    {
+      "id": 1,
+      "requirement": "Cite data from 6.xlsx file.",
+      "category": "evidence"
+    },
+    {
+      "id": 2,
+      "requirement": "Outline key 2026 tax changes.",
+      "category": "content"
+    },
+    {
+      "id": 3,
+      "requirement": "Analyze middle-class family financial impact.",
+      "category": "analysis"
+    },
+    {
+      "id": 4,
+      "requirement": "Note projected revenue loss figures.",
+      "category": "content"
+    },
+    {
+      "id": 5,
+      "requirement": "Explain national financial management strategies.",
+      "category": "analysis"
+    },
+    {
+      "id": 6,
+      "requirement": "Detail specific corporate tax measures.",
+      "category": "content"
+    },
+    {
+      "id": 7,
+      "requirement": "Describe Japan's income tax structure.",
+      "category": "content"
+    },
+    {
+      "id": 8,
+      "requirement": "List official government rollout pages.",
+      "category": "evidence"
+    },
+    {
+      "id": 9,
+      "requirement": "Compare pre-reform and post-reform rates.",
+      "category": "comparison"
+    },
+    {
+      "id": 10,
+      "requirement": "Assess overall fiscal policy balance.",
+      "category": "conclusion"
+    }
+  ]
+}

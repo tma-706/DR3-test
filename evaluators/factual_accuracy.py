@@ -49,11 +49,14 @@ import logging
 logger = logging.getLogger("batch_eval")
 
 # API Configuration
-API_KEY = os.environ.get("OPENAI_API_KEY", "")
-API_BASE_URL = os.environ.get("OPENAI_BASE_URL", "")
-MODEL_NAME = os.environ.get("FACTUAL_ACCURACY_MODEL", "gpt-51-1113-global")
-GEMINI_MULTIMODAL_MODEL = os.environ.get("GEMINI_MULTIMODAL_MODEL", "gemini-2.5-pro-06-17")
-GPT5_MODEL = os.environ.get("GPT5_MODEL", "gpt-51-1113-global")
+API_KEY = os.environ.get("OPENROUTER_API_KEY", os.environ.get("OPENAI_API_KEY", ""))
+API_BASE_URL = os.environ.get("OPENROUTER_BASE_URL", os.environ.get("OPENAI_BASE_URL", ""))
+MODEL_NAME = os.environ.get(
+    "OPENROUTER_MODEL",
+    os.environ.get("FACTUAL_ACCURACY_MODEL", "gpt-51-1113-global"),
+)
+GEMINI_MULTIMODAL_MODEL = os.environ.get("OPENROUTER_MODEL", MODEL_NAME)
+GPT5_MODEL = os.environ.get("OPENROUTER_MODEL", MODEL_NAME)
 
 # File type extensions
 IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png", ".gif", ".webp"}
@@ -1150,11 +1153,6 @@ class FactualAccuracyAgentEvaluator(BaseEvaluator):
             return []
         
         logger.info(f"  📊 Report length: {len(report_text)} chars (~{len(report_text)//4} tokens)")
-        
-        MAX_REPORT_LENGTH = 50000
-        if len(report_text) > MAX_REPORT_LENGTH:
-            logger.warning(f"  ⚠️ Report too long, truncating to {MAX_REPORT_LENGTH} chars")
-            report_text = report_text[:MAX_REPORT_LENGTH]
         
         claims = self._extract_claims_single_call(report_text)
         

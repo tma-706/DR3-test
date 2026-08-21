@@ -1,0 +1,64 @@
+{
+  "checklist": [
+    {
+      "id": 1,
+      "requirement": "Cite Warriors season report data.",
+      "category": "evidence"
+    },
+    {
+      "id": 2,
+      "requirement": "Reference provided player statistics.",
+      "category": "evidence"
+    },
+    {
+      "id": 3,
+      "requirement": "Analyze Curry's shot chart trends.",
+      "category": "analysis"
+    },
+    {
+      "id": 4,
+      "requirement": "Describe veteran health management tactics.",
+      "category": "content"
+    },
+    {
+      "id": 5,
+      "requirement": "Outline youth development frameworks.",
+      "category": "content"
+    },
+    {
+      "id": 6,
+      "requirement": "Detail offseason move strategies.",
+      "category": "content"
+    },
+    {
+      "id": 7,
+      "requirement": "Integrate league offensive trend impacts.",
+      "category": "analysis"
+    },
+    {
+      "id": 8,
+      "requirement": "Apply salary cap financial rules.",
+      "category": "content"
+    },
+    {
+      "id": 9,
+      "requirement": "Balance veteran salaries with rookie contracts.",
+      "category": "analysis"
+    },
+    {
+      "id": 10,
+      "requirement": "Synthesize a future building blueprint.",
+      "category": "conclusion"
+    },
+    {
+      "id": 11,
+      "requirement": "Connect financial limits to roster plans.",
+      "category": "analysis"
+    },
+    {
+      "id": 12,
+      "requirement": "Prioritize short term versus long term goals.",
+      "category": "conclusion"
+    }
+  ]
+}

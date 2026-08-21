@@ -1,0 +1,20 @@
+{
+  "gold_insights": [
+    {
+      "insight": "The floor plan is a template with placeholder text '[YOUR COMPANY NAME]'.",
+      "source": "Generated Image January 13, 2026 - 4_57PM.png"
+    },
+    {
+      "insight": "The file is dated January 13, 2026, which is after the 2025 handbook period.",
+      "source": "Generated Image January 13, 2026 - 4_57PM.png"
+    },
+    {
+      "insight": "Handbook effective Jan 1, 2025, is a template with placeholders.",
+      "source": "tex.pdf"
+    },
+    {
+      "insight": "Draft outlines benefits, remote work (5.7), and separation (section 8).",
+      "source": "tex.pdf"
+    }
+  ]
+}

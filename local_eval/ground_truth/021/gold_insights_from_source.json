@@ -1,0 +1,20 @@
+{
+  "gold_insights": [
+    {
+      "insight": "Third-country transfers and data subject rights violations incur four percent turnover fines.",
+      "source": "fine.csv"
+    },
+    {
+      "insight": "Member states impose criminal penalties for severe data theft or misuse.",
+      "source": "fine.csv"
+    },
+    {
+      "insight": "Document legal basis and store proof of user consent.",
+      "source": "GDPR_Compliance_Checklist.pdf"
+    },
+    {
+      "insight": "Use Standard Contractual Clauses for transfers outside the EEA.",
+      "source": "GDPR_Compliance_Checklist.pdf"
+    }
+  ]
+}

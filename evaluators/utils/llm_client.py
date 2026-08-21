@@ -17,7 +17,7 @@
 import json
 import re
 from typing import Dict, Optional
-from openai import OpenAI
+from openai import AuthenticationError, OpenAI, PermissionDeniedError
 from .base import EvalConfig
 
 
@@ -241,8 +241,10 @@ class LLMClient:
     def __init__(self, config: Optional[EvalConfig] = None):
         self.config = config or EvalConfig()
         self.client = OpenAI(
-            api_key=self.config.api_key, 
-            base_url=self.config.base_url
+            api_key=self.config.api_key,
+            base_url=self.config.base_url,
+            max_retries=0,
+            timeout=120.0,
         )
         self.call_count = 0
     
@@ -292,6 +294,8 @@ class LLMClient:
                 print(f"  Warning: Failed to parse JSON response: {content[:200]}...")
             return result
             
+        except (AuthenticationError, PermissionDeniedError):
+            raise
         except Exception as e:
             print(f"  Warning: LLM call error: {e}")
             return None

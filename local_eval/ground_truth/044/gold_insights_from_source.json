@@ -1,0 +1,28 @@
+{
+  "gold_insights": [
+    {
+      "insight": "Image displays bright accretion ring surrounding dark central black hole shadow.",
+      "source": "black_hole.png"
+    },
+    {
+      "insight": "This visual confirms the dark event horizon predicted by general relativity.",
+      "source": "black_hole.png"
+    },
+    {
+      "insight": "Einstein’s 1915 equations predicted a dark shadow in a light ring.",
+      "source": "First-ever picture of a black hole unveiled _ National Geographic_compressed.pdf"
+    },
+    {
+      "insight": "Singularities indicate a mathematical gap in gravity understanding.",
+      "source": "First-ever picture of a black hole unveiled _ National Geographic_compressed.pdf"
+    },
+    {
+      "insight": "Trapped surfaces imply inevitable space-time singularity development.",
+      "source": "PhysRevLett.14.57.pdf"
+    },
+    {
+      "insight": "Exterior observers cannot see matter cross the Schwarzschild radius.",
+      "source": "PhysRevLett.14.57.pdf"
+    }
+  ]
+}

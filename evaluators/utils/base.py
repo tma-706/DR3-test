@@ -34,16 +34,18 @@ class EvaluationAPIError(Exception):
 class EvalConfig:
     """Evaluation configuration."""
     api_key: str = field(default_factory=lambda: os.getenv(
-        "ALIBABA_API_KEY", os.getenv("OPENAI_API_KEY", "")
+        "OPENROUTER_API_KEY",
+        os.getenv("ALIBABA_API_KEY", os.getenv("OPENAI_API_KEY", "")),
     ))
     base_url: str = field(default_factory=lambda: os.getenv(
-        "ALIBABA_BASE_URL", os.getenv("OPENAI_BASE_URL", "")
+        "OPENROUTER_BASE_URL",
+        os.getenv("ALIBABA_BASE_URL", os.getenv("OPENAI_BASE_URL", "")),
     ))
     model_name: str = field(default_factory=lambda: os.getenv(
-        "ALIBABA_MODEL", "gpt-51-1113-global"
+        "OPENROUTER_MODEL", os.getenv("ALIBABA_MODEL", "gpt-51-1113-global")
     ))
     max_segment_length: int = 8000
-    temperature: float = 0
+    temperature: float = field(default_factory=lambda: float(os.getenv("EVAL_TEMPERATURE", "0")))
 
 
 @dataclass

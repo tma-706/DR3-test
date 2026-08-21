@@ -1,0 +1,5 @@
+Tier_Level,Article_Reference,Violation_Type,Max_Fine_EUR,Max_Fine_Global_Turnover,Description
+Tier 1,Art. 83(4),Administrative & Procedural,10000000,2%,Violations regarding data controllers/processors obligations; certification bodies; monitoring bodies. (e.g. Failing to appoint a DPO or conduct a DPIA).
+Tier 2,Art. 83(5),Basic Principles & Rights,20000000,4%,Violations of basic principles for processing (including consent); data subjects' rights; transfers to third countries. (e.g. Processing data without consent or failing to delete data when asked).
+Tier 2,Art. 83(6),Non-compliance with Orders,20000000,4%,Non-compliance with an order previously issued by the Supervisory Authority.
+Special,Member State Law,Criminal Penalties,Variable,Variable,Member states may impose their own criminal penalties for severe data theft or misuse beyond administrative fines.
