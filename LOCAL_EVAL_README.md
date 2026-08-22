@@ -36,7 +36,7 @@ Trong .env:
 ~~~dotenv
 OPENROUTER_API_KEY=...
 OPENROUTER_BASE_URL=https://openrouter.ai/api/v1
-OPENROUTER_MODEL=qwen/qwen3-30b-a3b
+OPENROUTER_MODEL=qwen/qwen3.7-flash
 OPENROUTER_VISION_MODEL=qwen/qwen2.5-vl-32b-instruct
 EVAL_TEMPERATURE=0
 ~~~
@@ -57,6 +57,12 @@ Chạy một task:
 
 ~~~powershell
 uv run python local_eval_runner.py --task 008
+~~~
+
+Khi một task có nhiều report hoặc cần chọn format cụ thể:
+
+~~~powershell
+uv run python local_eval_runner.py --task 012 --report local_eval/results/012/final_report.tex
 ~~~
 
 Chạy nhiều task:
@@ -81,7 +87,7 @@ uv run python local_eval_runner.py --task 012 --overwrite
 
 ## Preprocess report
 
-- Markdown/text được đọc toàn bộ.
+- Markdown, text và LaTeX (`.md`, `.markdown`, `.txt`, `.text`, `.tex`) được đọc toàn bộ.
 - PDF được trích toàn bộ text theo page/block và thêm page boundary dạng HTML comment.
 - Không có giới hạn first-N characters.
 - Visual substantive được render riêng và transcription bằng vision; kết quả được chèn đúng vị trí trang.
@@ -90,7 +96,8 @@ uv run python local_eval_runner.py --task 012 --overwrite
 
 ## Output
 
-Mỗi task ghi vào eval_result/<task>/:
+Mỗi report ghi theo format vào `eval_result/<task>/<format>/`, ví dụ
+`eval_result/012/pdf/` hoặc `eval_result/012/tex/`:
 
 ~~~text
 report_for_eval.md

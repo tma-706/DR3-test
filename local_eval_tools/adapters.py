@@ -33,6 +33,13 @@ _GENERIC_FILE_RE = re.compile(
     re.IGNORECASE,
 )
 
+_LATEX_OPTION_RE = re.compile(r"(\\(?:[A-Za-z@]+|\\))\s*\[[^\[\]\r\n]*\]")
+
+
+def _without_latex_optional_arguments(text: str) -> str:
+    """Prevent TeX command options from being parsed as general [title] citations."""
+    return _LATEX_OPTION_RE.sub(r"\1", text)
+
 
 def list_user_files(dataset_dir: Path) -> List[Path]:
     """Enumerate only the official files placed directly in a task directory."""
@@ -50,6 +57,11 @@ class LocalCitationCoverageEvaluator(CitationCoverageEvaluator):
     """User-file-only CC without useful_search or full-text fallbacks."""
 
     USER_DOC_EXTENSIONS = USER_FILE_EXTENSIONS
+
+    def _extract_explicit_citations(self, content: str) -> List[str]:
+        return super()._extract_explicit_citations(
+            _without_latex_optional_arguments(content)
+        )
 
     def evaluate(
         self,

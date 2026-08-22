@@ -4,7 +4,13 @@ from evaluators.utils.base import EvalConfig, EvalResult
 from local_eval_tools.adapters import LocalCitationCoverageEvaluator, explicit_citations
 from local_eval_tools.report_preprocessor import preprocess_report
 from local_eval_tools import runner
-from local_eval_tools.runner import TaskInputs, evaluate_task, normalize_task_id, result_payload
+from local_eval_tools.runner import (
+    TaskInputs,
+    _factual_accuracy,
+    evaluate_task,
+    normalize_task_id,
+    result_payload,
+)
 
 
 def test_normalize_task_id():
@@ -41,6 +47,42 @@ def test_internal_page_markers_are_not_citations():
     assert explicit_citations(text) == []
 
 
+def test_latex_options_are_not_citations():
+    text = (
+        r"\documentclass[11pt,a4paper]{article} "
+        r"\includegraphics[width=0.92\textwidth]{flowchart.png} "
+        r"[HUD-sec8-FY25.pdf]"
+    )
+    assert explicit_citations(text) == ["HUD-sec8-FY25.pdf"]
+
+
+def test_fa_skips_unmatched_bracket_candidates(tmp_path: Path, monkeypatch):
+    coverage = EvalResult(
+        "citation_coverage",
+        0.0,
+        {"extracted_citations": ["Diamond"], "cited": []},
+    )
+    inputs = TaskInputs(
+        task="012",
+        query="Question",
+        query_data={"task": "012", "query": "Question"},
+        report_path=tmp_path / "final_report.pdf",
+        dataset_dir=tmp_path,
+        checklist_path=tmp_path / "checklist.json",
+        insights_path=tmp_path / "gold.json",
+    )
+
+    def fail_if_called(*args, **kwargs):
+        raise AssertionError("FA evaluator must not run without a matched official citation")
+
+    monkeypatch.setattr(runner, "LocalFactualAccuracyEvaluator", fail_if_called)
+    result = _factual_accuracy("[Diamond]", inputs, EvalConfig(), coverage)
+
+    assert result.score == 0.0
+    assert result.details["matched_citations"] == []
+    assert result.details["extracted_citations"] == ["Diamond"]
+
+
 def test_markdown_preprocess_is_complete_and_cacheable(tmp_path: Path):
     source = tmp_path / "final_report.md"
     output = tmp_path / "out"
@@ -56,6 +98,21 @@ def test_markdown_preprocess_is_complete_and_cacheable(tmp_path: Path):
     assert first.reused is False
     assert second.reused is True
     assert second.text == report
+
+
+def test_latex_preprocess_reads_source_text_without_rendering(tmp_path: Path):
+    source = tmp_path / "final_report.tex"
+    output = tmp_path / "out"
+    report = r"\section{Finding} HUD uses 50\% of area median income."
+    source.write_text(report, encoding="utf-8")
+    config = EvalConfig(api_key="", base_url="", model_name="", temperature=0)
+
+    result = preprocess_report(source, output, config)
+
+    assert result.text == report
+    assert result.metadata["source_format"] == "tex"
+    assert result.metadata["pages"] is None
+    assert result.metadata["vision_used"] == []
 
 
 def test_zero_is_success_but_negative_score_is_error():
@@ -132,6 +189,7 @@ def test_full_task_output_schema_without_network(tmp_path: Path, monkeypatch):
 
     assert summary["status"] == "success"
     assert summary["scores"] == {"IR": 80.0, "CC": 0.0, "FA": 0.0, "IF": 90.0, "DQ": 70.0}
+    task_output = output / "008" / "md"
     for name in (
         "report_for_eval.md",
         "preprocess_metadata.json",
@@ -143,4 +201,4 @@ def test_full_task_output_schema_without_network(tmp_path: Path, monkeypatch):
         "scores.json",
         "summary.json",
     ):
-        assert (output / "008" / name).is_file()
+        assert (task_output / name).is_file()

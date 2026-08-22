@@ -33,6 +33,7 @@ from local_eval_tools.adapters import (
     list_user_files,
 )
 from local_eval_tools.report_preprocessor import (
+    SUPPORTED_REPORT_EXTENSIONS,
     inspect_report,
     preprocess_report,
     sha256_file,
@@ -120,20 +121,9 @@ def find_report(results_root: Path, task: str) -> Path:
     task_dir = find_task_dir(results_root, task)
     if not task_dir.is_dir():
         raise LocalEvalError(f"Report directory not found: {task_dir}")
-    priority = (
-        "final_report.md",
-        "final_report.pdf",
-        "report_for_eval.md",
-        "report.md",
-        "report.pdf",
-    )
-    for name in priority:
-        candidate = task_dir / name
-        if candidate.is_file():
-            return candidate
     candidates = sorted(
         path for path in task_dir.iterdir()
-        if path.is_file() and path.suffix.lower() in {".md", ".txt", ".pdf"}
+        if path.is_file() and path.suffix.lower() in SUPPORTED_REPORT_EXTENSIONS
     )
     if len(candidates) == 1:
         return candidates[0]
@@ -165,6 +155,7 @@ def resolve_inputs(
     ground_truth_root: Path,
     results_root: Path,
     queries: Dict[str, Dict[str, Any]],
+    report_path: Optional[Path] = None,
 ) -> TaskInputs:
     task = normalize_task_id(task)
     query_data = queries.get(task)
@@ -185,7 +176,7 @@ def resolve_inputs(
         task=task,
         query=str(query_data["query"]),
         query_data=query_data,
-        report_path=find_report(results_root, task),
+        report_path=report_path if report_path is not None else find_report(results_root, task),
         dataset_dir=dataset_dir,
         checklist_path=checklist_path,
         insights_path=insights_path,
@@ -277,22 +268,26 @@ def _factual_accuracy(
     report_text: str,
     inputs: TaskInputs,
     config: EvalConfig,
+    citation_coverage: EvalResult,
 ) -> EvalResult:
-    citations = explicit_citations(report_text)
-    if not citations:
+    matched_citations = citation_coverage.details.get("cited", [])
+    if not matched_citations:
         return EvalResult(
             metric_name="factual_accuracy",
             score=0.0,
             details={
                 "status": "success",
                 "policy": "legitimate_zero",
-                "reason": "No explicit cited claim-source pair was found",
-                "extracted_citations": [],
+                "reason": "No explicit citation matched an official user file",
+                "extracted_citations": citation_coverage.details.get(
+                    "extracted_citations", []
+                ),
+                "matched_citations": [],
                 "claim_count": 0,
             },
         )
     result = LocalFactualAccuracyEvaluator(config).evaluate(
-        result_text=result_text,
+        result_text=report_text,
         source_folder=inputs.dataset_dir,
         case_id=inputs.task,
     )
@@ -305,13 +300,21 @@ def _factual_accuracy(
     return result
 
 
+def report_output_dir(output_root: Path, inputs: TaskInputs) -> Path:
+    """Keep evaluations for different report formats separate within a task."""
+    report_format = inputs.report_path.suffix.lower().lstrip(".")
+    if not report_format:
+        raise LocalEvalError(f"Report has no file extension: {inputs.report_path}")
+    return output_root / inputs.task / report_format
+
+
 def evaluate_task(
     inputs: TaskInputs,
     output_root: Path,
     config: EvalConfig,
     overwrite: bool,
 ) -> Dict[str, Any]:
-    task_output = output_root / inputs.task
+    task_output = report_output_dir(output_root, inputs)
     task_output.mkdir(parents=True, exist_ok=True)
     preprocessed = preprocess_report(
         report_path=inputs.report_path,
@@ -321,6 +324,11 @@ def evaluate_task(
     )
     report_text = preprocessed.text
     gold_insights = read_gold_insights(inputs.insights_path)
+    citation_coverage = LocalCitationCoverageEvaluator(config).evaluate(
+        result_text=report_text,
+        dataset_dir=inputs.dataset_dir,
+    )
+    report_has_matched_citations = bool(citation_coverage.details.get("cited", []))
 
     factories: Dict[str, Callable[[], EvalResult]] = {
         "IR": lambda: InformationRecallEvaluator(config).evaluate(
@@ -330,11 +338,10 @@ def evaluate_task(
             auto_extract=False,
             evaluate_only="source_documents",
         ),
-        "CC": lambda: LocalCitationCoverageEvaluator(config).evaluate(
-            result_text=report_text,
-            dataset_dir=inputs.dataset_dir,
+        "CC": lambda: citation_coverage,
+        "FA": lambda: _factual_accuracy(
+            report_text, inputs, config, citation_coverage
         ),
-        "FA": lambda: _factual_accuracy(report_text, inputs, config),
         "IF": lambda: FormatComplianceEvaluator(config).evaluate(
             result_text=report_text,
             checklist_path=inputs.checklist_path,
@@ -349,7 +356,6 @@ def evaluate_task(
 
     metrics: Dict[str, Dict[str, Any]] = {}
     fatal_auth_error: Optional[str] = None
-    report_has_citations = bool(explicit_citations(report_text))
     for code, factory in factories.items():
         path = task_output / METRIC_FILES[code]
         signature = _input_signature(code, report_text, inputs, config)
@@ -359,7 +365,7 @@ def evaluate_task(
             metrics[code] = cached
             continue
         requires_api = code in {"IR", "IF", "DQ"} or (
-            code == "FA" and report_has_citations
+            code == "FA" and report_has_matched_citations
         )
         if fatal_auth_error and requires_api:
             payload = error_payload(inputs.task, code, LocalEvalError(fatal_auth_error))
@@ -397,6 +403,7 @@ def evaluate_task(
         "status": "success" if not errors else ("partial_error" if len(errors) < 5 else "error"),
         "query": inputs.query,
         "report": str(inputs.report_path),
+        "report_format": inputs.report_path.suffix.lower().lstrip("."),
         "dataset_dir": str(inputs.dataset_dir),
         "official_user_files": [path.name for path in list_user_files(inputs.dataset_dir)],
         "preprocess_reused": preprocessed.reused,
@@ -414,11 +421,14 @@ def dry_run(
     ground_truth_root: Path,
     results_root: Path,
     queries: Dict[str, Dict[str, Any]],
+    report_path: Optional[Path] = None,
 ) -> List[Dict[str, Any]]:
     summaries = []
     for task in tasks:
         try:
-            inputs = resolve_inputs(task, datasets_root, ground_truth_root, results_root, queries)
+            inputs = resolve_inputs(
+                task, datasets_root, ground_truth_root, results_root, queries, report_path
+            )
             inspection = inspect_report(inputs.report_path)
             summaries.append(
                 {
@@ -473,11 +483,19 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--ground-truth-root", type=Path, default=PROJECT_ROOT / "local_eval" / "ground_truth")
     parser.add_argument("--results-root", type=Path, default=PROJECT_ROOT / "local_eval" / "results")
     parser.add_argument("--output-root", type=Path, default=PROJECT_ROOT / "eval_result")
+    parser.add_argument(
+        "--report",
+        type=Path,
+        help="Explicit report path; valid only with exactly one --task",
+    )
     parser.add_argument("--verbose", action="store_true")
     return parser
 
 
 def main(argv: Optional[Sequence[str]] = None) -> int:
+    for stream in (sys.stdout, sys.stderr):
+        if hasattr(stream, "reconfigure"):
+            stream.reconfigure(encoding="utf-8", errors="replace")
     args = build_parser().parse_args(argv)
     logging.basicConfig(
         level=logging.INFO if args.verbose else logging.WARNING,
@@ -485,6 +503,14 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     )
     if args.workers < 1:
         raise SystemExit("--workers must be at least 1")
+    if args.report and (args.all or len(args.task or []) != 1):
+        raise SystemExit("--report requires exactly one --task")
+    report_path = args.report.resolve() if args.report else None
+    if report_path and (
+        not report_path.is_file()
+        or report_path.suffix.lower() not in SUPPORTED_REPORT_EXTENSIONS
+    ):
+        raise SystemExit(f"Unsupported or missing report: {report_path}")
     queries = load_queries(args.datasets_root / "query.jsonl")
     tasks = discover_tasks(args.results_root) if args.all else [
         normalize_task_id(task) for task in args.task
@@ -494,7 +520,14 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         return 1
 
     if args.dry_run:
-        rows = dry_run(tasks, args.datasets_root, args.ground_truth_root, args.results_root, queries)
+        rows = dry_run(
+            tasks,
+            args.datasets_root,
+            args.ground_truth_root,
+            args.results_root,
+            queries,
+            report_path,
+        )
         print_table(rows, dry=True)
         return 1 if any(row["status"] == "error" for row in rows) else 0
 
@@ -508,7 +541,14 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     for task in tasks:
         try:
             resolved.append(
-                resolve_inputs(task, args.datasets_root, args.ground_truth_root, args.results_root, queries)
+                resolve_inputs(
+                    task,
+                    args.datasets_root,
+                    args.ground_truth_root,
+                    args.results_root,
+                    queries,
+                    report_path,
+                )
             )
         except Exception as exc:
             rows.append({"task": task, "status": "error", "scores": {}, "error": str(exc)})
@@ -518,7 +558,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             return evaluate_task(item, args.output_root, config, args.overwrite)
         except Exception as exc:
             LOGGER.error("Task %s failed: %s", item.task, traceback.format_exc())
-            task_output = args.output_root / item.task
+            task_output = report_output_dir(args.output_root, item)
             task_output.mkdir(parents=True, exist_ok=True)
             summary = {
                 "task": item.task,

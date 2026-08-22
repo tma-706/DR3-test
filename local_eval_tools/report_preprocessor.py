@@ -26,6 +26,10 @@ from evaluators.utils.base import EvalConfig
 from evaluators.utils.llm_client import extract_json_from_text
 
 
+TEXT_REPORT_EXTENSIONS = frozenset({".md", ".markdown", ".txt", ".text", ".tex"})
+SUPPORTED_REPORT_EXTENSIONS = TEXT_REPORT_EXTENSIONS | {".pdf"}
+
+
 class PreprocessError(RuntimeError):
     """Raised when a report cannot be normalized faithfully."""
 
@@ -181,7 +185,7 @@ def _describe_visual(
 
 def inspect_report(path: Path) -> Dict[str, Any]:
     """Read-only report inspection used by --dry-run."""
-    if path.suffix.lower() in {".md", ".txt"}:
+    if path.suffix.lower() in TEXT_REPORT_EXTENSIONS:
         return {
             "format": path.suffix.lower().lstrip("."),
             "characters": len(path.read_text(encoding="utf-8")),
@@ -244,7 +248,7 @@ def preprocess_report(
         "report_truncated": False,
     }
 
-    if suffix in {".md", ".txt"}:
+    if suffix in TEXT_REPORT_EXTENSIONS:
         text = report_path.read_text(encoding="utf-8")
         metadata.update({"pages": None, "extracted_characters": len(text)})
     elif suffix == ".pdf":
