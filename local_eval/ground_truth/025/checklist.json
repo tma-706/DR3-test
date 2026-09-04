@@ -2,63 +2,78 @@
   "checklist": [
     {
       "id": 1,
-      "requirement": "Cite tex.pdf content",
+      "requirement": "Cite the attached Google job description",
       "category": "evidence"
     },
     {
       "id": 2,
-      "requirement": "Incorporate 48.txt details",
+      "requirement": "Cite the attached preparation notes",
       "category": "evidence"
     },
     {
       "id": 3,
-      "requirement": "Incorporate 48.docx details",
-      "category": "evidence"
+      "requirement": "Identify interview expectations for this Product Manager role",
+      "category": "content"
     },
     {
       "id": 4,
-      "requirement": "Address past experience questions",
+      "requirement": "Describe common Product Manager interview question types",
       "category": "content"
     },
     {
       "id": 5,
-      "requirement": "Address estimation questions",
-      "category": "content"
+      "requirement": "Explain how to answer past-experience questions",
+      "category": "analysis"
     },
     {
       "id": 6,
-      "requirement": "Provide practice resources",
+      "requirement": "Provide examples for past-experience questions",
       "category": "content"
     },
     {
       "id": 7,
-      "requirement": "Cite other tech company examples",
-      "category": "evidence"
+      "requirement": "Describe estimation question structures",
+      "category": "content"
     },
     {
       "id": 8,
-      "requirement": "Compare industry PM expectations",
-      "category": "comparison"
+      "requirement": "Explain how to answer estimation questions",
+      "category": "analysis"
     },
     {
       "id": 9,
-      "requirement": "Outline general PM expectations",
-      "category": "analysis"
+      "requirement": "Provide examples of estimation questions",
+      "category": "content"
     },
     {
       "id": 10,
-      "requirement": "Align advice with Google role",
-      "category": "analysis"
+      "requirement": "Recommend resources for answering past-experience questions",
+      "category": "content"
     },
     {
       "id": 11,
-      "requirement": "Structure responses for practice",
-      "category": "analysis"
+      "requirement": "Recommend resources for answering estimation questions",
+      "category": "content"
     },
     {
       "id": 12,
-      "requirement": "Cover common question types",
-      "category": "content"
+      "requirement": "Cite credible sources for recommended resources",
+      "category": "evidence"
+    },
+    {
+      "id": 13,
+      "requirement": "Describe Product Manager interview expectations at major tech companies",
+      "category": "comparison"
+    },
+    {
+      "id": 14,
+      "requirement": "Compare Google interview expectations with other tech companies",
+      "category": "comparison"
+    },
+    {
+      "id": 15,
+      "requirement": "Explain general expectations across Product Manager roles",
+      "category": "conclusion"
     }
   ]
 }

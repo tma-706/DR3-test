@@ -1,27 +1,27 @@
 {
   "gold_insights": [
     {
-      "insight": "Photo shows a 15 kW array, conflicting with the 6kW document description.",
+      "insight": "Photo labels the rooftop array as 15 kW",
       "source": "51.png"
     },
     {
-      "insight": "System uses a SolarEdge Inverter for monitoring and main electrical panel connection.",
+      "insight": "Photo identifies a SolarEdge inverter and monitoring system",
       "source": "51.png"
     },
     {
-      "insight": "Six kilowatt system achieves 11.6 percent internal rate of return.",
+      "insight": "The financial model evaluates a 6 kW solar system.",
       "source": "51.xlsx"
     },
     {
-      "insight": "Eight point seven year payback period follows government incentive.",
+      "insight": "Model projects 8.7-year payback and $21,250 net profit.",
       "source": "51.xlsx"
     },
     {
-      "insight": "GreenGrid Energy Solutions published this residential solar guide in January 2026.",
+      "insight": "GreenGrid estimates $16,500 installed for a 6 kW system",
       "source": "tex.pdf"
     },
     {
-      "insight": "Six kilowatt residential solar installations cost approximately sixteen thousand five hundred dollars.",
+      "insight": "The guide projects 7,500–9,000 annual kWh production",
       "source": "tex.pdf"
     }
   ]

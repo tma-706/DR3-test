@@ -1,12 +1,16 @@
 {
   "gold_insights": [
     {
-      "insight": "Harvard annual grand total cost reaches $102,100 for all student expenses.",
+      "insight": "Harvard file estimates 2025–2026 total attendance costs at $102,100",
       "source": "harvard.csv"
     },
     {
-      "insight": "Families earning under $85,000 receive full scholarships with zero parental contribution.",
+      "insight": "Aid tiers vary by income, assets, and expected parent contribution",
       "source": "harvard.csv"
+    },
+    {
+      "insight": "Contains no financial-aid formulas or enrollment-effectiveness research",
+      "source": "harvard.docx"
     }
   ]
 }

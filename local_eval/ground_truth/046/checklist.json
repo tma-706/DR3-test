@@ -2,52 +2,77 @@
   "checklist": [
     {
       "id": 1,
-      "requirement": "Cite attached warming data",
+      "requirement": "Cite attached evidence of warming near 1.5°C",
       "category": "evidence"
     },
     {
       "id": 2,
-      "requirement": "Confirm 1.5°C temperature rise",
-      "category": "content"
+      "requirement": "Explain human causes of current warming",
+      "category": "analysis"
     },
     {
       "id": 3,
-      "requirement": "Provide human emission evidence",
-      "category": "evidence"
+      "requirement": "Describe natural factors influencing climate variability",
+      "category": "content"
     },
     {
       "id": 4,
-      "requirement": "Contrast with natural cycles",
+      "requirement": "Compare human influence with natural climate cycles",
       "category": "comparison"
     },
     {
       "id": 5,
+      "requirement": "Cite evidence supporting human-caused warming",
+      "category": "evidence"
+    },
+    {
+      "id": 6,
       "requirement": "Identify dangerous climate thresholds",
       "category": "content"
     },
     {
-      "id": 6,
-      "requirement": "Assess irreversible damage potential",
+      "id": 7,
+      "requirement": "Explain how climate thresholds create irreversible changes",
       "category": "analysis"
     },
     {
-      "id": 7,
-      "requirement": "Detail food supply impacts",
-      "category": "content"
-    },
-    {
       "id": 8,
-      "requirement": "Outline economic consequences",
-      "category": "content"
+      "requirement": "Assess proximity to dangerous climate thresholds",
+      "category": "analysis"
     },
     {
       "id": 9,
-      "requirement": "Summarize global climate talks",
+      "requirement": "Describe major food-supply consequences",
       "category": "content"
     },
     {
       "id": 10,
-      "requirement": "Link human activity to warming",
+      "requirement": "Explain climate impacts on crop production",
+      "category": "analysis"
+    },
+    {
+      "id": 11,
+      "requirement": "Describe major economic consequences",
+      "category": "content"
+    },
+    {
+      "id": 12,
+      "requirement": "Explain climate impacts on economic activity",
+      "category": "analysis"
+    },
+    {
+      "id": 13,
+      "requirement": "Provide a current global climate-talks update",
+      "category": "content"
+    },
+    {
+      "id": 14,
+      "requirement": "Describe recent progress in global climate negotiations",
+      "category": "content"
+    },
+    {
+      "id": 15,
+      "requirement": "Identify major challenges facing global climate negotiations",
       "category": "analysis"
     }
   ]

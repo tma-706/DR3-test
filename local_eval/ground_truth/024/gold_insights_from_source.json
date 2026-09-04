@@ -1,19 +1,19 @@
 {
   "gold_insights": [
     {
-      "insight": "Maintains consistent 74% gross margin throughout the projection period.",
+      "insight": "Revenue grows from $1.85 million in 2024 to $14.9 million in 2028",
       "source": "prediction.csv"
     },
     {
-      "insight": "Shifts from net loss to operational profitability beginning in 2025.",
+      "insight": "Gross margin stays near 74% while CAC declines and LTV rises",
       "source": "prediction.csv"
     },
     {
-      "insight": "IBM, Google, Microsoft, and Amazon lead large enterprise AI platforms.",
+      "insight": "Segments include machine learning, NLP, computer vision, and robotics",
       "source": "tex.pdf"
     },
     {
-      "insight": "Trends highlight Explainable AI, Edge AI, AIaaS, and Hybrid AI models.",
+      "insight": "Future trends include explainable AI, edge AI, AIaaS, and hybrid models",
       "source": "tex.pdf"
     }
   ]

@@ -2,62 +2,77 @@
   "checklist": [
     {
       "id": 1,
-      "requirement": "Cite MERS case table data.",
+      "requirement": "Cite the attached MERS case table",
       "category": "evidence"
     },
     {
       "id": 2,
-      "requirement": "Cite WHO report statistics.",
+      "requirement": "Cite relevant WHO reports",
       "category": "evidence"
     },
     {
       "id": 3,
-      "requirement": "Provide a structured medical overview.",
+      "requirement": "Describe factors influencing patient survival",
       "category": "content"
     },
     {
       "id": 4,
-      "requirement": "List factors affecting patient survival.",
-      "category": "content"
-    },
-    {
-      "id": 5,
-      "requirement": "Describe standard diagnostic procedures.",
-      "category": "content"
-    },
-    {
-      "id": 6,
-      "requirement": "Outline current clinical treatment approaches.",
-      "category": "content"
-    },
-    {
-      "id": 7,
-      "requirement": "Analyze viral genome sequencing insights.",
+      "requirement": "Analyze differences in reported patient outcomes",
       "category": "analysis"
     },
     {
+      "id": 5,
+      "requirement": "Explain how age affects survival",
+      "category": "analysis"
+    },
+    {
+      "id": 6,
+      "requirement": "Explain how comorbidities affect survival",
+      "category": "analysis"
+    },
+    {
+      "id": 7,
+      "requirement": "Describe current MERS diagnostic approaches",
+      "category": "content"
+    },
+    {
       "id": 8,
-      "requirement": "Reference French case sequencing results.",
-      "category": "evidence"
+      "requirement": "Describe current MERS treatment approaches",
+      "category": "content"
     },
     {
       "id": 9,
-      "requirement": "Report ongoing vaccine development status.",
+      "requirement": "Explain supportive-care strategies",
       "category": "content"
     },
     {
       "id": 10,
-      "requirement": "Compare survival outcomes across groups.",
-      "category": "comparison"
+      "requirement": "Describe infection-control measures",
+      "category": "content"
     },
     {
       "id": 11,
-      "requirement": "Assess overall disease severity trends.",
+      "requirement": "Analyze findings from MERS virus sequencing",
       "category": "analysis"
     },
     {
       "id": 12,
-      "requirement": "Conclude on primary care priorities.",
+      "requirement": "Cite sequencing results from French cases",
+      "category": "evidence"
+    },
+    {
+      "id": 13,
+      "requirement": "Explain what genomic analysis revealed",
+      "category": "analysis"
+    },
+    {
+      "id": 14,
+      "requirement": "Describe current MERS vaccine progress",
+      "category": "content"
+    },
+    {
+      "id": 15,
+      "requirement": "Assess remaining obstacles to vaccine development",
       "category": "conclusion"
     }
   ]

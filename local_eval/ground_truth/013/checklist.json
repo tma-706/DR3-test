@@ -2,53 +2,78 @@
   "checklist": [
     {
       "id": 1,
-      "requirement": "Cite data from 6.xlsx file.",
+      "requirement": "Cite the attached Excel file",
       "category": "evidence"
     },
     {
       "id": 2,
-      "requirement": "Outline key 2026 tax changes.",
+      "requirement": "Mention Japan's 2026 tax changes",
       "category": "content"
     },
     {
       "id": 3,
-      "requirement": "Analyze middle-class family financial impact.",
-      "category": "analysis"
-    },
-    {
-      "id": 4,
-      "requirement": "Note projected revenue loss figures.",
+      "requirement": "Describe the reform's main provisions",
       "category": "content"
     },
     {
+      "id": 4,
+      "requirement": "Analyze effects on middle-class families",
+      "category": "analysis"
+    },
+    {
       "id": 5,
-      "requirement": "Explain national financial management strategies.",
+      "requirement": "Estimate average household financial effects",
       "category": "analysis"
     },
     {
       "id": 6,
-      "requirement": "Detail specific corporate tax measures.",
+      "requirement": "Mention household tax savings",
       "category": "content"
     },
     {
       "id": 7,
-      "requirement": "Describe Japan's income tax structure.",
+      "requirement": "Mention household tax increases",
       "category": "content"
     },
     {
       "id": 8,
-      "requirement": "List official government rollout pages.",
-      "category": "evidence"
+      "requirement": "Explain the reform's revenue loss",
+      "category": "content"
     },
     {
       "id": 9,
-      "requirement": "Compare pre-reform and post-reform rates.",
-      "category": "comparison"
+      "requirement": "Analyze Japan's fiscal management response",
+      "category": "analysis"
     },
     {
       "id": 10,
-      "requirement": "Assess overall fiscal policy balance.",
-      "category": "conclusion"
+      "requirement": "Describe the corporate tax measures",
+      "category": "content"
+    },
+    {
+      "id": 11,
+      "requirement": "Explain corporate taxes addressing revenue loss",
+      "category": "analysis"
+    },
+    {
+      "id": 12,
+      "requirement": "Describe Japan's income tax structure",
+      "category": "content"
+    },
+    {
+      "id": 13,
+      "requirement": "Mention income tax rates and brackets",
+      "category": "content"
+    },
+    {
+      "id": 14,
+      "requirement": "Cite official government rollout pages",
+      "category": "evidence"
+    },
+    {
+      "id": 15,
+      "requirement": "Explain the reform's implementation timeline",
+      "category": "content"
     }
   ]
 }

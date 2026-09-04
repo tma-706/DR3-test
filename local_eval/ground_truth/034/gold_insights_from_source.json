@@ -1,27 +1,27 @@
 {
   "gold_insights": [
     {
-      "insight": "Veterans Curry, Thompson, and Paul exceed age 33.",
+      "insight": "Curry remains productive at 35, averaging 26.4 points",
       "source": "57.csv"
     },
     {
-      "insight": "Young players Kuminga and Podziemski average over 16 points.",
+      "insight": "Kuminga, Podziemski, and Jackson-Davis provide young production",
       "source": "57.csv"
     },
     {
-      "insight": "Source is Stephen Curry's 2023-2024 season shot chart heatmap.",
+      "insight": "Charts Stephen Curry's 2023–2024 season shooting locations",
       "source": "57.png"
     },
     {
-      "insight": "Chart highlights heavy three-point and mid-range volume reflecting league trends.",
+      "insight": "Displays separate field-goal and three-point shot distributions",
       "source": "57.png"
     },
     {
-      "insight": "Aging core maintains offensive competitiveness.",
+      "insight": "Warriors’ offense drops significantly when Curry leaves the floor",
       "source": "tex.pdf"
     },
     {
-      "insight": "Jonathan Kuminga emerges as reliable young scorer.",
+      "insight": "Roster lacks consistent rim protection and defensive rebounding",
       "source": "tex.pdf"
     }
   ]

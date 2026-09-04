@@ -1,19 +1,27 @@
 {
   "gold_insights": [
     {
-      "insight": "Older age and chronic conditions significantly increase severe MERS outcomes.",
+      "insight": "Nine 2025 cases included camel exposure, camel-product consumption, and unknown exposure",
+      "source": "MERS-CoV cases reported by KSA and France between 4 June and 21 December 2025.jpg"
+    },
+    {
+      "insight": "Deaths occurred in Riyadh patients; several comorbid patients remained hospitalized or recovered",
+      "source": "MERS-CoV cases reported by KSA and France between 4 June and 21 December 2025.jpg"
+    },
+    {
+      "insight": "Severe outcomes disproportionately affect older adults and patients with diabetes, kidney, lung, or immune disorders.",
       "source": "Middle East respiratory syndrome coronavirus - Global update.pdf"
     },
     {
-      "insight": "French genomic sequencing confirms Arabian Peninsula viral lineage match.",
+      "insight": "French case sequencing matched the lineage circulating in the Arabian Peninsula.",
       "source": "Middle East respiratory syndrome coronavirus - Global update.pdf"
     },
     {
-      "insight": "Lopinavir–ritonavir plus interferon β-1b reduces ninety-day mortality.",
+      "insight": "MERS incubation typically spans 2–15 days",
       "source": "Suggestions.pdf"
     },
     {
-      "insight": "Underlying chronic conditions increase risk of severe MERS disease.",
+      "insight": "Immunocompromised patients may have prolonged incubation",
       "source": "Suggestions.pdf"
     }
   ]

@@ -1,23 +1,27 @@
 {
   "gold_insights": [
     {
-      "insight": "Blended learning became the top research topic with 259 studies.",
+      "insight": "Blended-learning research rose from 18 in 2022 to 259 during 2023–2025",
       "source": "Global academic research on China’s education digitalization, 2022-2025.jpg"
     },
     {
-      "insight": "Adaptive learning and virtual reality research increased to 180 and 128.",
+      "insight": "Adaptive learning and virtual reality became prominent 2023–2025 research themes",
       "source": "Global academic research on China’s education digitalization, 2022-2025.jpg"
     },
     {
-      "insight": "Cumulative education digitalization policy documents increased sharply after 2022.",
+      "insight": "Cumulative digital-education policies surged after 2022.",
       "source": "National education digitalization policy documents, 2005-2025.jpg"
     },
     {
-      "insight": "Squirrel AI’s LAM diagnoses classroom performance to design personalized learning paths.",
+      "insight": "Policy documents reached approximately 54 by 2025.",
+      "source": "National education digitalization policy documents, 2005-2025.jpg"
+    },
+    {
+      "insight": "Rural teachers use animated videos in interactive instruction",
       "source": "Three dimensions of leadership in digitalizing education in China.pdf"
     },
     {
-      "insight": "AI tools provide individualized step-by-step homework solutions and remedial help.",
+      "insight": "AI tools provide individualized homework solutions and remedial guidance",
       "source": "Three dimensions of leadership in digitalizing education in China.pdf"
     }
   ]

@@ -2,63 +2,78 @@
   "checklist": [
     {
       "id": 1,
-      "requirement": "Mention draft 2025 employee handbook.",
-      "category": "content"
+      "requirement": "Cite the 2025 employee handbook",
+      "category": "evidence"
     },
     {
       "id": 2,
-      "requirement": "Review new office floor plan.",
-      "category": "content"
+      "requirement": "Cite the new office floor plan",
+      "category": "evidence"
     },
     {
       "id": 3,
-      "requirement": "Verify benefits policy currency.",
+      "requirement": "Analyze benefits policy currency",
       "category": "analysis"
     },
     {
       "id": 4,
-      "requirement": "Verify remote work policy currency.",
-      "category": "analysis"
+      "requirement": "Mention health benefits provisions",
+      "category": "content"
     },
     {
       "id": 5,
-      "requirement": "Verify separation procedure currency.",
-      "category": "analysis"
+      "requirement": "Mention leave benefits provisions",
+      "category": "content"
     },
     {
       "id": 6,
-      "requirement": "Assess benefits policy comprehensiveness.",
+      "requirement": "Analyze remote work policy completeness",
       "category": "analysis"
     },
     {
       "id": 7,
-      "requirement": "Assess remote work policy comprehensiveness.",
-      "category": "analysis"
+      "requirement": "Mention remote work eligibility rules",
+      "category": "content"
     },
     {
       "id": 8,
-      "requirement": "Assess separation procedure comprehensiveness.",
-      "category": "analysis"
+      "requirement": "Mention remote work approval procedures",
+      "category": "content"
     },
     {
       "id": 9,
-      "requirement": "Cite recent legal or governmental shifts.",
-      "category": "evidence"
+      "requirement": "Analyze employee separation procedures",
+      "category": "analysis"
     },
     {
       "id": 10,
-      "requirement": "Analyze legal impact on workplace rules.",
-      "category": "analysis"
+      "requirement": "Mention final pay procedures",
+      "category": "content"
     },
     {
       "id": 11,
-      "requirement": "Flag missing critical policies.",
-      "category": "analysis"
+      "requirement": "Mention benefits continuation procedures",
+      "category": "content"
     },
     {
       "id": 12,
-      "requirement": "Compare handbook with floor plan.",
-      "category": "comparison"
+      "requirement": "Mention workplace rules affected by floorplan design",
+      "category": "content"
+    },
+    {
+      "id": 13,
+      "requirement": "Cite recent major legal developments",
+      "category": "evidence"
+    },
+    {
+      "id": 14,
+      "requirement": "Analyze governmental shifts affecting workplace rules",
+      "category": "analysis"
+    },
+    {
+      "id": 15,
+      "requirement": "Explain missing policy requirements",
+      "category": "conclusion"
     }
   ]
 }

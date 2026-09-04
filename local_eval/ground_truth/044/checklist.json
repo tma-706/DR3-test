@@ -2,57 +2,77 @@
   "checklist": [
     {
       "id": 1,
-      "requirement": "Cite 1965 gravitational collapse paper.",
+      "requirement": "Cite the 1965 gravitational-collapse paper",
       "category": "evidence"
     },
     {
       "id": 2,
-      "requirement": "Cite recent black hole image article.",
+      "requirement": "Cite the recent black-hole-image article",
       "category": "evidence"
     },
     {
       "id": 3,
-      "requirement": "Reference the provided black hole picture.",
-      "category": "evidence"
+      "requirement": "Describe the provided black-hole image",
+      "category": "content"
     },
     {
       "id": 4,
-      "requirement": "Describe fundamental properties of black holes.",
-      "category": "content"
+      "requirement": "Explain the old theory's collapse prediction",
+      "category": "analysis"
     },
     {
       "id": 5,
-      "requirement": "Explain how 1965 theory predicts observations.",
-      "category": "analysis"
+      "requirement": "Describe the event horizon",
+      "category": "content"
     },
     {
       "id": 6,
-      "requirement": "Compare theoretical predictions with observed image.",
-      "category": "comparison"
+      "requirement": "Explain the point of no return",
+      "category": "content"
     },
     {
       "id": 7,
-      "requirement": "Address matter fate past event horizon.",
-      "category": "content"
+      "requirement": "Compare theoretical predictions with observed imagery",
+      "category": "comparison"
     },
     {
       "id": 8,
-      "requirement": "Explain supermassive black hole formation process.",
-      "category": "content"
-    },
-    {
-      "id": 9,
-      "requirement": "Evaluate completeness of current physics models.",
+      "requirement": "Explain what falls past the event horizon",
       "category": "analysis"
     },
     {
+      "id": 9,
+      "requirement": "Mention unresolved matter-fate questions",
+      "category": "content"
+    },
+    {
       "id": 10,
-      "requirement": "List key unresolved black hole questions.",
+      "requirement": "Describe how supermassive black holes form",
       "category": "content"
     },
     {
       "id": 11,
-      "requirement": "Conclude on theory versus observation gap.",
+      "requirement": "Mention unresolved supermassive-growth questions",
+      "category": "content"
+    },
+    {
+      "id": 12,
+      "requirement": "Analyze general relativity's explanatory scope",
+      "category": "analysis"
+    },
+    {
+      "id": 13,
+      "requirement": "Mention limitations of current physics theories",
+      "category": "content"
+    },
+    {
+      "id": 14,
+      "requirement": "Explain the need for quantum gravity",
+      "category": "analysis"
+    },
+    {
+      "id": 15,
+      "requirement": "Conclude whether current theories are complete",
       "category": "conclusion"
     }
   ]

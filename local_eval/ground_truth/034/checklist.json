@@ -2,62 +2,77 @@
   "checklist": [
     {
       "id": 1,
-      "requirement": "Cite Warriors season report data.",
+      "requirement": "Cite the Warriors season report",
       "category": "evidence"
     },
     {
       "id": 2,
-      "requirement": "Reference provided player statistics.",
+      "requirement": "Cite player statistics",
       "category": "evidence"
     },
     {
       "id": 3,
-      "requirement": "Analyze Curry's shot chart trends.",
-      "category": "analysis"
+      "requirement": "Cite Curry's shot chart",
+      "category": "evidence"
     },
     {
       "id": 4,
-      "requirement": "Describe veteran health management tactics.",
+      "requirement": "Describe aging-core challenges",
       "category": "content"
     },
     {
       "id": 5,
-      "requirement": "Outline youth development frameworks.",
+      "requirement": "Describe young-player opportunities",
       "category": "content"
     },
     {
       "id": 6,
-      "requirement": "Detail offseason move strategies.",
-      "category": "content"
+      "requirement": "Analyze veteran health management",
+      "category": "analysis"
     },
     {
       "id": 7,
-      "requirement": "Integrate league offensive trend impacts.",
+      "requirement": "Explain veteran workload management",
       "category": "analysis"
     },
     {
       "id": 8,
-      "requirement": "Apply salary cap financial rules.",
+      "requirement": "Describe youth development priorities",
       "category": "content"
     },
     {
       "id": 9,
-      "requirement": "Balance veteran salaries with rookie contracts.",
+      "requirement": "Explain young-player role expansion",
       "category": "analysis"
     },
     {
       "id": 10,
-      "requirement": "Synthesize a future building blueprint.",
-      "category": "conclusion"
+      "requirement": "Describe offseason roster priorities",
+      "category": "content"
     },
     {
       "id": 11,
-      "requirement": "Connect financial limits to roster plans.",
+      "requirement": "Analyze trade and free-agent options",
       "category": "analysis"
     },
     {
       "id": 12,
-      "requirement": "Prioritize short term versus long term goals.",
+      "requirement": "Explain current offensive trends",
+      "category": "content"
+    },
+    {
+      "id": 13,
+      "requirement": "Analyze shot-profile implications",
+      "category": "analysis"
+    },
+    {
+      "id": 14,
+      "requirement": "Explain relevant NBA financial rules",
+      "category": "content"
+    },
+    {
+      "id": 15,
+      "requirement": "Describe a future-building team blueprint",
       "category": "conclusion"
     }
   ]

@@ -1,11 +1,11 @@
 {
   "gold_insights": [
     {
-      "insight": "Graphene features a two-dimensional hexagonal honeycomb lattice structure.",
+      "insight": "Shows carbon atoms arranged in a hexagonal honeycomb lattice",
       "source": "graphene_structure.png"
     },
     {
-      "insight": "Graphene sheets can exhibit natural ripples or wrinkles.",
+      "insight": "Depicts graphene as both flat and rippled sheets",
       "source": "graphene_structure.png"
     }
   ]

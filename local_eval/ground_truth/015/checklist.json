@@ -2,63 +2,78 @@
   "checklist": [
     {
       "id": 1,
-      "requirement": "Reference attached waste ordinance",
-      "category": "content"
+      "requirement": "Cite the attached waste ordinance",
+      "category": "evidence"
     },
     {
       "id": 2,
-      "requirement": "Reference attached collection schedule",
-      "category": "content"
+      "requirement": "Cite the attached collection schedule",
+      "category": "evidence"
     },
     {
       "id": 3,
-      "requirement": "Analyze general program effectiveness",
-      "category": "analysis"
+      "requirement": "Describe four-bin system logistics",
+      "category": "content"
     },
     {
       "id": 4,
-      "requirement": "Cite recycling success data",
-      "category": "evidence"
+      "requirement": "Analyze urban sorting program effectiveness",
+      "category": "analysis"
     },
     {
       "id": 5,
-      "requirement": "Describe organic waste treatment methods",
-      "category": "content"
-    },
-    {
-      "id": 6,
-      "requirement": "Explain collection route optimization",
-      "category": "analysis"
-    },
-    {
-      "id": 7,
-      "requirement": "Cite route planning tools",
+      "requirement": "Cite effectiveness data from comparable cities",
       "category": "evidence"
     },
     {
-      "id": 8,
-      "requirement": "List common recycling failure reasons",
+      "id": 6,
+      "requirement": "Describe collected organic waste destinations",
       "category": "content"
     },
     {
-      "id": 9,
-      "requirement": "Analyze contamination impact factors",
+      "id": 7,
+      "requirement": "Explain organic waste processing methods",
+      "category": "content"
+    },
+    {
+      "id": 8,
+      "requirement": "Analyze contamination impacts on organic waste",
       "category": "analysis"
+    },
+    {
+      "id": 9,
+      "requirement": "Describe complex collection route optimization",
+      "category": "content"
     },
     {
       "id": 10,
-      "requirement": "Compare four-bin to traditional systems",
-      "category": "comparison"
+      "requirement": "Explain technology used for route optimization",
+      "category": "content"
     },
     {
       "id": 11,
-      "requirement": "Conclude on system viability",
-      "category": "conclusion"
+      "requirement": "Mention common causes of low recycling rates",
+      "category": "content"
     },
     {
       "id": 12,
-      "requirement": "Connect analysis to local context",
+      "requirement": "Analyze participation barriers in sorting programs",
       "category": "analysis"
+    },
+    {
+      "id": 13,
+      "requirement": "Analyze contamination barriers in recycling programs",
+      "category": "analysis"
+    },
+    {
+      "id": 14,
+      "requirement": "Analyze collection barriers affecting recycling rates",
+      "category": "analysis"
+    },
+    {
+      "id": 15,
+      "requirement": "Draw conclusions about four-bin system feasibility",
+      "category": "conclusion"
     }
   ]
 }

@@ -1,19 +1,19 @@
 {
   "gold_insights": [
     {
-      "insight": "The floor plan is a template with placeholder text '[YOUR COMPANY NAME]'.",
+      "insight": "Level 7 plan includes meeting rooms and designated quiet zones",
       "source": "Generated Image January 13, 2026 - 4_57PM.png"
     },
     {
-      "insight": "The file is dated January 13, 2026, which is after the 2025 handbook period.",
+      "insight": "Plan marks emergency exits, server room, private offices, and reception",
       "source": "Generated Image January 13, 2026 - 4_57PM.png"
     },
     {
-      "insight": "Handbook effective Jan 1, 2025, is a template with placeholders.",
+      "insight": "Handbook remains a customizable template with unresolved placeholders",
       "source": "tex.pdf"
     },
     {
-      "insight": "Draft outlines benefits, remote work (5.7), and separation (section 8).",
+      "insight": "Benefits list lacks eligibility, costs, enrollment, and statutory details",
       "source": "tex.pdf"
     }
   ]

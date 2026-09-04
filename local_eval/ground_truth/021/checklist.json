@@ -2,53 +2,78 @@
   "checklist": [
     {
       "id": 1,
-      "requirement": "Cite compliance checklist details.",
+      "requirement": "Cite the compliance checklist",
       "category": "evidence"
     },
     {
       "id": 2,
-      "requirement": "Cite fine structure file data.",
+      "requirement": "Cite the fine structure file",
       "category": "evidence"
     },
     {
       "id": 3,
-      "requirement": "Outline main GDPR obligations.",
+      "requirement": "Describe core GDPR data-handling rules",
       "category": "content"
     },
     {
       "id": 4,
-      "requirement": "Summarize core data handling rules.",
+      "requirement": "Explain lawful bases for processing data",
       "category": "content"
     },
     {
       "id": 5,
-      "requirement": "Explain user request procedures.",
+      "requirement": "Mention data minimization obligations",
       "category": "content"
     },
     {
       "id": 6,
-      "requirement": "Describe cross-border transfer procedures.",
+      "requirement": "Mention data security obligations",
       "category": "content"
     },
     {
       "id": 7,
-      "requirement": "Cite criminal penalty references.",
-      "category": "evidence"
+      "requirement": "Describe procedures for user requests",
+      "category": "content"
     },
     {
       "id": 8,
-      "requirement": "Identify violations causing criminal penalties.",
+      "requirement": "Mention deadlines for responding to users",
       "category": "content"
     },
     {
       "id": 9,
-      "requirement": "Analyze penalty severity implications.",
-      "category": "analysis"
+      "requirement": "Mention identity verification requirements",
+      "category": "content"
     },
     {
       "id": 10,
-      "requirement": "Connect fines to specific breaches.",
+      "requirement": "Describe international data-transfer procedures",
+      "category": "content"
+    },
+    {
+      "id": 11,
+      "requirement": "Mention safeguards for overseas transfers",
+      "category": "content"
+    },
+    {
+      "id": 12,
+      "requirement": "Explain conditions for using transfer mechanisms",
       "category": "analysis"
+    },
+    {
+      "id": 13,
+      "requirement": "Describe violations resulting in criminal penalties",
+      "category": "content"
+    },
+    {
+      "id": 14,
+      "requirement": "Cite fine-file evidence for criminal penalties",
+      "category": "evidence"
+    },
+    {
+      "id": 15,
+      "requirement": "Explain distinctions between administrative and criminal penalties",
+      "category": "comparison"
     }
   ]
 }

@@ -1,27 +1,27 @@
 {
   "gold_insights": [
     {
-      "insight": "Emphasizes A/B testing and data analysis for feature optimization",
+      "insight": "Resume template emphasizes quantified product outcomes, such as growth and retention.",
       "source": "48.docx"
     },
     {
-      "insight": "Lists SQL, Python, and Figma as core technical skills",
+      "insight": "Recommended PM experience spans roadmaps, PRDs, Scrum, research, and launches.",
       "source": "48.docx"
     },
     {
-      "insight": "Recommends STAR method for behavioral question responses",
+      "insight": "Use STAR: Situation, Task, Action, Result for behavioral answers.",
       "source": "48.txt"
     },
     {
-      "insight": "Utilizes stepwise population breakdown for market sizing",
+      "insight": "Estimate Google Maps directions by narrowing population, users, and frequency.",
       "source": "48.txt"
     },
     {
-      "insight": "Requires five years product management or development experience.",
+      "insight": "Google PMs define product vision, strategy, and roadmaps",
       "source": "tex.pdf"
     },
     {
-      "insight": "Emphasizes influencing stakeholders without direct managerial authority.",
+      "insight": "Google expects influence across stakeholders without direct authority",
       "source": "tex.pdf"
     }
   ]

@@ -1,11 +1,11 @@
 {
   "gold_insights": [
     {
-      "insight": "The diagram labels Frontal and Parietal lobes as distinct brain regions.",
+      "insight": "Labels frontal and parietal lobes as distinct cortical regions",
       "source": "brain.jpg"
     },
     {
-      "insight": "The image is Figure 2.10 from 'The Mind's Machine 2e' textbook.",
+      "insight": "Also identifies precentral, postcentral gyri and central sulcus",
       "source": "brain.jpg"
     }
   ]

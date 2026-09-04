@@ -2,63 +2,78 @@
   "checklist": [
     {
       "id": 1,
-      "requirement": "Cite prediction.csv financial assumptions.",
-      "category": "evidence"
+      "requirement": "Analyze assumptions in prediction.csv",
+      "category": "analysis"
     },
     {
       "id": 2,
-      "requirement": "Reference tex.pdf market outline.",
+      "requirement": "Cite prediction.csv financial projections",
       "category": "evidence"
     },
     {
       "id": 3,
-      "requirement": "Describe current AI business landscape.",
-      "category": "content"
+      "requirement": "Cite relevant points from tex.pdf",
+      "category": "evidence"
     },
     {
       "id": 4,
-      "requirement": "Present simple market overview.",
+      "requirement": "Describe the overall AI business environment",
       "category": "content"
     },
     {
       "id": 5,
-      "requirement": "List example AI competitors.",
+      "requirement": "Mention major AI industry sectors",
       "category": "content"
     },
     {
       "id": 6,
-      "requirement": "Provide market health data.",
-      "category": "evidence"
+      "requirement": "Mention examples of AI startups",
+      "category": "content"
     },
     {
       "id": 7,
-      "requirement": "Analyze market growth trends.",
-      "category": "analysis"
+      "requirement": "Describe each startup's business focus",
+      "category": "content"
     },
     {
       "id": 8,
-      "requirement": "Identify upcoming economic factors.",
-      "category": "content"
+      "requirement": "Compare startup examples with the target business",
+      "category": "comparison"
     },
     {
       "id": 9,
-      "requirement": "Note relevant regulatory changes.",
-      "category": "content"
+      "requirement": "Cite data on AI market size",
+      "category": "evidence"
     },
     {
       "id": 10,
-      "requirement": "Validate financial projection assumptions.",
-      "category": "analysis"
+      "requirement": "Cite data on AI investment activity",
+      "category": "evidence"
     },
     {
       "id": 11,
-      "requirement": "Align insights with pitch goals.",
+      "requirement": "Analyze the AI market's general health",
       "category": "analysis"
     },
     {
       "id": 12,
-      "requirement": "Flag major industry risks.",
+      "requirement": "Analyze the AI market's growth direction",
+      "category": "analysis"
+    },
+    {
+      "id": 13,
+      "requirement": "Mention upcoming economic discussions affecting AI",
       "category": "content"
+    },
+    {
+      "id": 14,
+      "requirement": "Mention upcoming regulatory discussions affecting AI",
+      "category": "content"
+    },
+    {
+      "id": 15,
+      "requirement": "Explain how identified discussions could impact AI",
+      "category": "analysis"
     }
   ]
 }

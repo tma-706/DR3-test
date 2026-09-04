@@ -260,6 +260,10 @@ def _input_signature(
         "model": config.model_name,
         "temperature": config.temperature,
     }
+    if code in {"CC", "FA"}:
+        material["local_adapter_sha256"] = sha256_file(
+            PROJECT_ROOT / "local_eval_tools" / "adapters.py"
+        )
     encoded = json.dumps(material, ensure_ascii=False, sort_keys=True).encode("utf-8")
     return hashlib.sha256(encoded).hexdigest()
 
@@ -270,7 +274,10 @@ def _factual_accuracy(
     config: EvalConfig,
     citation_coverage: EvalResult,
 ) -> EvalResult:
-    matched_citations = citation_coverage.details.get("cited", [])
+    matched_citations = citation_coverage.details.get(
+        "explicitly_cited",
+        citation_coverage.details.get("cited", []),
+    )
     if not matched_citations:
         return EvalResult(
             metric_name="factual_accuracy",
@@ -328,7 +335,12 @@ def evaluate_task(
         result_text=report_text,
         dataset_dir=inputs.dataset_dir,
     )
-    report_has_matched_citations = bool(citation_coverage.details.get("cited", []))
+    report_has_matched_citations = bool(
+        citation_coverage.details.get(
+            "explicitly_cited",
+            citation_coverage.details.get("cited", []),
+        )
+    )
 
     factories: Dict[str, Callable[[], EvalResult]] = {
         "IR": lambda: InformationRecallEvaluator(config).evaluate(

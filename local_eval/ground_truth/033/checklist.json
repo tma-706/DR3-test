@@ -2,57 +2,77 @@
   "checklist": [
     {
       "id": 1,
-      "requirement": "Cite the attached floor plan.",
+      "requirement": "Cite the attached floor plan",
       "category": "evidence"
     },
     {
       "id": 2,
-      "requirement": "Explain the exhibit's religious significance.",
+      "requirement": "Identify the exhibit's religious sections",
       "category": "content"
     },
     {
       "id": 3,
-      "requirement": "Explain the exhibit's symbolic meaning.",
-      "category": "content"
+      "requirement": "Explain the exhibit's symbolic organization",
+      "category": "analysis"
     },
     {
       "id": 4,
-      "requirement": "Describe the pharaoh's divine role.",
+      "requirement": "Describe the pharaoh's political role",
       "category": "content"
     },
     {
       "id": 5,
-      "requirement": "Identify gods in the Pantheon section.",
-      "category": "content"
+      "requirement": "Explain the pharaoh's religious role",
+      "category": "analysis"
     },
     {
       "id": 6,
-      "requirement": "Explain the purpose of eye amulets.",
+      "requirement": "Describe the pharaoh's cosmic responsibilities",
       "category": "content"
     },
     {
       "id": 7,
-      "requirement": "Translate hieroglyphs on the provided map.",
+      "requirement": "Identify gods in the Pantheon section",
       "category": "content"
     },
     {
       "id": 8,
-      "requirement": "Analyze spatial layout symbolism.",
-      "category": "analysis"
+      "requirement": "Describe each identified god's attributes",
+      "category": "content"
     },
     {
       "id": 9,
-      "requirement": "Connect artifacts to worship practices.",
+      "requirement": "Explain the gods' religious significance",
       "category": "analysis"
     },
     {
       "id": 10,
-      "requirement": "Relate design elements to mythology.",
-      "category": "analysis"
+      "requirement": "Describe the eye amulets' appearance",
+      "category": "content"
     },
     {
       "id": 11,
-      "requirement": "Conclude on the exhibit's cultural message.",
+      "requirement": "Explain the eye amulets' protective purpose",
+      "category": "analysis"
+    },
+    {
+      "id": 12,
+      "requirement": "Transcribe the map's hieroglyphs",
+      "category": "content"
+    },
+    {
+      "id": 13,
+      "requirement": "Translate the map's hieroglyphs",
+      "category": "content"
+    },
+    {
+      "id": 14,
+      "requirement": "Explain the hieroglyphs' symbolic meanings",
+      "category": "analysis"
+    },
+    {
+      "id": 15,
+      "requirement": "Distinguish visible evidence from uncertain interpretations",
       "category": "conclusion"
     }
   ]

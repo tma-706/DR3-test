@@ -2,53 +2,78 @@
   "checklist": [
     {
       "id": 1,
-      "requirement": "Cite WHO report findings",
+      "requirement": "Cite the WHO report",
       "category": "evidence"
     },
     {
       "id": 2,
-      "requirement": "Reference current flu map data",
+      "requirement": "Cite the current-season flu map",
       "category": "evidence"
     },
     {
       "id": 3,
-      "requirement": "Describe global H3N2 tracking methods",
+      "requirement": "Describe global H3N2 evolution tracking",
       "category": "content"
     },
     {
       "id": 4,
-      "requirement": "Explain vaccine strain selection process",
+      "requirement": "Mention international influenza surveillance networks",
       "category": "content"
     },
     {
       "id": 5,
-      "requirement": "Detail annual vaccine update procedures",
-      "category": "content"
+      "requirement": "Explain how H3N2 samples are collected",
+      "category": "analysis"
     },
     {
       "id": 6,
-      "requirement": "Outline vaccine efficacy measurement metrics",
+      "requirement": "Describe genetic sequencing of H3N2 viruses",
       "category": "content"
     },
     {
       "id": 7,
-      "requirement": "Analyze protection levels against variants",
-      "category": "analysis"
+      "requirement": "Describe antigenic characterization of H3N2 viruses",
+      "category": "content"
     },
     {
       "id": 8,
-      "requirement": "Describe seasonal outbreak prediction models",
+      "requirement": "Describe the yearly vaccine strain selection process",
       "category": "content"
     },
     {
       "id": 9,
-      "requirement": "Identify key surveillance system limitations",
+      "requirement": "Mention vaccine composition recommendation meetings",
       "category": "content"
     },
     {
       "id": 10,
-      "requirement": "Discuss global coordination challenges",
+      "requirement": "Explain how vaccine candidates match circulating H3N2",
+      "category": "analysis"
+    },
+    {
+      "id": 11,
+      "requirement": "Describe methods measuring vaccine effectiveness",
       "category": "content"
+    },
+    {
+      "id": 12,
+      "requirement": "Explain how effectiveness against new variants is assessed",
+      "category": "analysis"
+    },
+    {
+      "id": 13,
+      "requirement": "Describe seasonal influenza forecasting methods",
+      "category": "content"
+    },
+    {
+      "id": 14,
+      "requirement": "Mention factors influencing seasonal predictions",
+      "category": "content"
+    },
+    {
+      "id": 15,
+      "requirement": "Analyze challenges in global influenza surveillance",
+      "category": "analysis"
     }
   ]
 }

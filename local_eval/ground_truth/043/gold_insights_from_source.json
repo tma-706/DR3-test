@@ -1,23 +1,23 @@
 {
   "gold_insights": [
     {
-      "insight": "The illustration depicts cyberbullying with negative comments like 'loser' and 'ugly'.",
+      "insight": "Illustrates online insults targeting appearance, weight, intelligence, and friendships",
       "source": "bully.webp"
     },
     {
-      "insight": "Mild social influence reduces group diversity without improving accuracy.",
+      "insight": "Depicts a distressed teen receiving hostile messages on a laptop",
+      "source": "bully.webp"
+    },
+    {
+      "insight": "Mild social influence reduced group diversity without improving accuracy.",
       "source": "How_social_influence_can_undermine_the_wisdom_of_c.pdf"
     },
     {
-      "insight": "Opinion convergence boosts individual confidence despite lacking accuracy improvements.",
+      "insight": "Convergence increased confidence despite declining objective reliability.",
       "source": "How_social_influence_can_undermine_the_wisdom_of_c.pdf"
     },
     {
-      "insight": "Presents 8 key cyberbullying statistics including US laws and Indian cyberbullying.",
-      "source": "statics.webp"
-    },
-    {
-      "insight": "Statistics cover cyberbullying methods and prevalence on Facebook among American teens.",
+      "insight": "Cyberbullying statistics are presented in infographic format",
       "source": "statics.webp"
     }
   ]

@@ -1,19 +1,19 @@
 {
   "gold_insights": [
     {
-      "insight": "Third-country transfers and data subject rights violations incur four percent turnover fines.",
+      "insight": "Tier 1 fines cover controller, processor, DPO, DPIA, certification, and monitoring obligations.",
       "source": "fine.csv"
     },
     {
-      "insight": "Member states impose criminal penalties for severe data theft or misuse.",
+      "insight": "Tier 2 fines cover processing principles, user rights, third-country transfers, and authority orders.",
       "source": "fine.csv"
     },
     {
-      "insight": "Document legal basis and store proof of user consent.",
+      "insight": "Checklist requires documented legal bases, minimized collection, and consent records.",
       "source": "GDPR_Compliance_Checklist.pdf"
     },
     {
-      "insight": "Use Standard Contractual Clauses for transfers outside the EEA.",
+      "insight": "It specifies 30-day access, erasure, portability, objections, SCCs, and 72-hour breach notification.",
       "source": "GDPR_Compliance_Checklist.pdf"
     }
   ]

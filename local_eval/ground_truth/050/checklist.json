@@ -2,63 +2,78 @@
   "checklist": [
     {
       "id": 1,
-      "requirement": "Reference attached policy documents",
+      "requirement": "Cite attached files about China’s digital education push",
       "category": "evidence"
     },
     {
       "id": 2,
-      "requirement": "Prioritize practical implementation over strategy",
+      "requirement": "Mention classroom examples from China",
       "category": "content"
     },
     {
       "id": 3,
-      "requirement": "Provide specific classroom change examples",
-      "category": "evidence"
+      "requirement": "Describe blended online and in-person teaching methods",
+      "category": "content"
     },
     {
       "id": 4,
-      "requirement": "Describe blended online and offline methods",
+      "requirement": "Mention online learning activities",
       "category": "content"
     },
     {
       "id": 5,
-      "requirement": "Explain teacher training programs for digital tools",
+      "requirement": "Mention in-person learning activities",
       "category": "content"
     },
     {
       "id": 6,
-      "requirement": "Assess actual impact on student learning",
+      "requirement": "Explain how blended methods operate",
       "category": "analysis"
     },
     {
       "id": 7,
-      "requirement": "Mention adaptive learning software examples",
+      "requirement": "Describe teacher training programs",
       "category": "content"
     },
     {
       "id": 8,
-      "requirement": "Describe virtual reality classroom applications",
+      "requirement": "Mention digital skills taught to teachers",
       "category": "content"
     },
     {
       "id": 9,
-      "requirement": "Ground all examples in Chinese schools",
-      "category": "content"
+      "requirement": "Cite evidence of teacher training outcomes",
+      "category": "evidence"
     },
     {
       "id": 10,
-      "requirement": "Connect digital tools to teaching methods",
+      "requirement": "Analyze impacts on student learning",
       "category": "analysis"
     },
     {
       "id": 11,
-      "requirement": "Cite data on student performance changes",
+      "requirement": "Cite data measuring student learning impacts",
       "category": "evidence"
     },
     {
       "id": 12,
-      "requirement": "Summarize key practical outcomes found",
-      "category": "conclusion"
+      "requirement": "Mention adaptive learning tools",
+      "category": "content"
+    },
+    {
+      "id": 13,
+      "requirement": "Explain how adaptive tools personalize instruction",
+      "category": "analysis"
+    },
+    {
+      "id": 14,
+      "requirement": "Mention virtual reality education tools",
+      "category": "content"
+    },
+    {
+      "id": 15,
+      "requirement": "Analyze practical classroom effects of virtual reality",
+      "category": "analysis"
     }
   ]
 }

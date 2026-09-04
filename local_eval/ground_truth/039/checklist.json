@@ -2,53 +2,78 @@
   "checklist": [
     {
       "id": 1,
-      "requirement": "Cite attached research paper.",
+      "requirement": "Cite the attached paper's successful module",
       "category": "evidence"
     },
     {
       "id": 2,
-      "requirement": "Cite crystal structure images.",
-      "category": "evidence"
-    },
-    {
-      "id": 3,
-      "requirement": "Cite natural mineral images.",
-      "category": "evidence"
-    },
-    {
-      "id": 4,
-      "requirement": "Describe current commercial landscape.",
+      "requirement": "Describe the ideal perovskite crystal structure",
       "category": "content"
     },
     {
+      "id": 3,
+      "requirement": "Describe perovskite's natural mineral form",
+      "category": "content"
+    },
+    {
+      "id": 4,
+      "requirement": "Explain the path from material to product",
+      "category": "analysis"
+    },
+    {
       "id": 5,
-      "requirement": "Mention latest performance records.",
+      "requirement": "Describe the current commercial perovskite landscape",
       "category": "content"
     },
     {
       "id": 6,
-      "requirement": "Describe major manufacturing hurdles.",
-      "category": "analysis"
+      "requirement": "Mention leading commercial perovskite companies",
+      "category": "content"
     },
     {
       "id": 7,
-      "requirement": "Describe long-term reliability hurdles.",
-      "category": "analysis"
+      "requirement": "Mention the latest certified cell efficiency record",
+      "category": "content"
     },
     {
       "id": 8,
-      "requirement": "Explain critical internal layers.",
+      "requirement": "Mention the latest certified module efficiency record",
       "category": "content"
     },
     {
       "id": 9,
-      "requirement": "Analyze material-to-product journey.",
-      "category": "analysis"
+      "requirement": "Cite sources for reported performance records",
+      "category": "evidence"
     },
     {
       "id": 10,
-      "requirement": "Conclude with market outlook.",
-      "category": "conclusion"
+      "requirement": "Analyze manufacturing scale-up hurdles",
+      "category": "analysis"
+    },
+    {
+      "id": 11,
+      "requirement": "Analyze manufacturing cost challenges",
+      "category": "analysis"
+    },
+    {
+      "id": 12,
+      "requirement": "Analyze long-term reliability challenges",
+      "category": "analysis"
+    },
+    {
+      "id": 13,
+      "requirement": "Describe required durability testing standards",
+      "category": "content"
+    },
+    {
+      "id": 14,
+      "requirement": "Explain the function of the absorber layer",
+      "category": "content"
+    },
+    {
+      "id": 15,
+      "requirement": "Explain the functions of charge-transport layers",
+      "category": "content"
     }
   ]
 }

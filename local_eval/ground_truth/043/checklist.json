@@ -2,63 +2,78 @@
   "checklist": [
     {
       "id": 1,
-      "requirement": "Cite online harassment illustration",
+      "requirement": "Cite the online harassment illustration",
       "category": "evidence"
     },
     {
       "id": 2,
-      "requirement": "Cite cyberbullying statistics",
+      "requirement": "Cite the cyberbullying statistics",
       "category": "evidence"
     },
     {
       "id": 3,
-      "requirement": "Cite group influence study",
+      "requirement": "Cite the group influence paper",
       "category": "evidence"
     },
     {
       "id": 4,
-      "requirement": "Explain relevant cyberbullying laws",
+      "requirement": "Define online harassment",
       "category": "content"
     },
     {
       "id": 5,
-      "requirement": "Describe required school actions",
+      "requirement": "Describe applicable cyberbullying laws",
       "category": "content"
     },
     {
       "id": 6,
-      "requirement": "List parent prevention methods",
+      "requirement": "Explain legal protections for victims",
       "category": "content"
     },
     {
       "id": 7,
-      "requirement": "Detail social media settings",
+      "requirement": "Describe schools’ legal responsibilities",
       "category": "content"
     },
     {
       "id": 8,
-      "requirement": "Outline teen psychological impacts",
+      "requirement": "Mention school reporting procedures",
       "category": "content"
     },
     {
       "id": 9,
-      "requirement": "Link laws to school duties",
-      "category": "analysis"
+      "requirement": "Mention school intervention measures",
+      "category": "content"
     },
     {
       "id": 10,
-      "requirement": "Assess prevention method effectiveness",
-      "category": "analysis"
+      "requirement": "Describe effective prevention methods",
+      "category": "content"
     },
     {
       "id": 11,
-      "requirement": "Synthesize all provided materials",
-      "category": "analysis"
+      "requirement": "Mention parents’ home-based prevention strategies",
+      "category": "content"
     },
     {
       "id": 12,
-      "requirement": "Provide actionable solutions",
-      "category": "conclusion"
+      "requirement": "Explain social media privacy settings",
+      "category": "content"
+    },
+    {
+      "id": 13,
+      "requirement": "Mention social media blocking tools",
+      "category": "content"
+    },
+    {
+      "id": 14,
+      "requirement": "Describe documented psychological effects on teens",
+      "category": "content"
+    },
+    {
+      "id": 15,
+      "requirement": "Analyze group influence on cyberbullying behavior",
+      "category": "analysis"
     }
   ]
 }

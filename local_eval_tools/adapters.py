@@ -27,6 +27,13 @@ USER_FILE_EXTENSIONS = {
     ".png", ".jpg", ".jpeg", ".gif", ".webp", ".bmp", ".tif", ".tiff",
 }
 
+DR3_CONTROL_FILENAMES = {
+    "useful_search.jsonl",
+    "useful_search.json",
+    "task.json",
+    "task.md",
+}
+
 _GENERIC_FILE_RE = re.compile(
     r"([^\[\],]+\.(?:pdf|md|txt|docx?|pptx?|csv|tsv|xlsx?|jsonl?|"
     r"png|jpe?g|gif|webp|bmp|tiff?))",
@@ -34,11 +41,19 @@ _GENERIC_FILE_RE = re.compile(
 )
 
 _LATEX_OPTION_RE = re.compile(r"(\\(?:[A-Za-z@]+|\\))\s*\[[^\[\]\r\n]*\]")
+_MARKDOWN_INLINE_LINK_RE = re.compile(
+    r"!?\[([^\[\]\r\n]*)\]\((?:\\.|[^()\r\n]|\([^()\r\n]*\))*\)"
+)
 
 
 def _without_latex_optional_arguments(text: str) -> str:
     """Prevent TeX command options from being parsed as general [title] citations."""
     return _LATEX_OPTION_RE.sub(r"\1", text)
+
+
+def _without_markdown_inline_links(text: str) -> str:
+    """Keep link labels as prose while hiding Markdown brackets from citation parsing."""
+    return _MARKDOWN_INLINE_LINK_RE.sub(r"\1", text)
 
 
 def list_user_files(dataset_dir: Path) -> List[Path]:
@@ -47,20 +62,26 @@ def list_user_files(dataset_dir: Path) -> List[Path]:
         (
             path
             for path in dataset_dir.iterdir()
-            if path.is_file() and path.suffix.lower() in USER_FILE_EXTENSIONS
+            if (
+                path.is_file()
+                and path.suffix.lower() in USER_FILE_EXTENSIONS
+                and path.name.casefold() not in DR3_CONTROL_FILENAMES
+            )
         ),
         key=lambda path: path.name.casefold(),
     )
 
 
 class LocalCitationCoverageEvaluator(CitationCoverageEvaluator):
-    """User-file-only CC without useful_search or full-text fallbacks."""
+    """Official DR3 citation scoring scoped to local user files only."""
 
     USER_DOC_EXTENSIONS = USER_FILE_EXTENSIONS
 
     def _extract_explicit_citations(self, content: str) -> List[str]:
+        parser_input = _without_markdown_inline_links(content)
+        parser_input = _without_latex_optional_arguments(parser_input)
         return super()._extract_explicit_citations(
-            _without_latex_optional_arguments(content)
+            parser_input
         )
 
     def evaluate(
@@ -90,52 +111,36 @@ class LocalCitationCoverageEvaluator(CitationCoverageEvaluator):
                 weight=self.weight,
             )
 
-        extracted = [
+        explicit_citations = [
             citation
             for citation in self._extract_explicit_citations(result_text)
             if not citation.startswith(("REPORT_PAGE:", "REPORT_VISUAL:"))
         ]
-        cited: List[str] = []
-        missing: List[str] = []
-        match_details: Dict[str, Dict[str, str]] = {}
-
+        explicitly_cited: List[str] = []
         for title in titles:
-            match = None
-            for citation in extracted:
-                matched, match_type = self._match_title_to_citation(title, citation)
+            for citation in explicit_citations:
+                matched, _ = self._match_title_to_citation(title, citation)
                 if matched:
-                    match = {"match_type": match_type, "matched_citation": citation}
+                    explicitly_cited.append(title)
                     break
-            if match:
-                cited.append(title)
-                match_details[title] = match
-            else:
-                missing.append(title)
-                match_details[title] = {
-                    "match_type": "not_found",
-                    "matched_citation": "",
-                }
 
-        score = 100.0 * len(cited) / len(titles)
-        return EvalResult(
-            metric_name=self.metric_name,
-            score=score,
-            details={
-                "status": "success",
+        result = super().evaluate(
+            result_text=result_text,
+            required_titles=list(titles),
+        )
+        result.details.update(
+            {
+                "status": "success" if result.score >= 0 else "failed",
                 "scope": "official_user_files_only",
                 "required_sources": titles,
-                "extracted_citations": extracted,
-                "cited": cited,
-                "missing": missing,
-                "total_required": len(titles),
-                "total_cited": len(cited),
-                "coverage_rate": score,
-                "full_coverage": len(cited) == len(titles),
-                "match_details": match_details,
-                "fallbacks_disabled": ["text_contains", "core_id_in_text"],
-            },
-            weight=self.weight,
+                "scoring_mechanism": "official_dr3",
+                "explicitly_cited": explicitly_cited,
+                "explicitly_missing": [
+                    title for title in titles if title not in explicitly_cited
+                ],
+            }
         )
+        return result
 
 
 class LocalFactualAccuracyEvaluator(FactualAccuracyAgentEvaluator):

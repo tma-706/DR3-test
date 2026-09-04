@@ -2,62 +2,77 @@
   "checklist": [
     {
       "id": 1,
-      "requirement": "Reference ADA Standards of Care document.",
-      "category": "content"
-    },
-    {
-      "id": 2,
-      "requirement": "Cite diabetes food plate details.",
+      "requirement": "Cite ADA Standards of Care guidance",
       "category": "evidence"
     },
     {
+      "id": 2,
+      "requirement": "Describe diabetes diagnostic criteria",
+      "category": "content"
+    },
+    {
       "id": 3,
-      "requirement": "Summarize current diabetes diagnostic criteria.",
+      "requirement": "Mention tests used to diagnose diabetes",
       "category": "content"
     },
     {
       "id": 4,
-      "requirement": "Explain standard diabetes tracking methods.",
+      "requirement": "Explain A1C monitoring",
       "category": "content"
     },
     {
       "id": 5,
-      "requirement": "Describe modern continuous glucose monitors.",
+      "requirement": "Describe blood glucose tracking",
       "category": "content"
     },
     {
       "id": 6,
-      "requirement": "List emerging diabetes monitoring technologies.",
+      "requirement": "Describe continuous glucose monitoring",
       "category": "content"
     },
     {
       "id": 7,
-      "requirement": "Outline key dietary management strategies.",
+      "requirement": "Mention modern insulin delivery technology",
       "category": "content"
     },
     {
       "id": 8,
-      "requirement": "Explain primary diabetes medication options.",
-      "category": "content"
+      "requirement": "Explain diabetes plate food proportions",
+      "category": "analysis"
     },
     {
       "id": 9,
-      "requirement": "Connect food plans to clinical goals.",
+      "requirement": "Connect the plate picture to ADA guidance",
       "category": "analysis"
     },
     {
       "id": 10,
-      "requirement": "Compare traditional and digital tracking tools.",
-      "category": "comparison"
+      "requirement": "Describe individualized nutrition planning",
+      "category": "content"
     },
     {
       "id": 11,
-      "requirement": "Simplify complex medical guidelines clearly.",
-      "category": "analysis"
+      "requirement": "Mention lifestyle management strategies",
+      "category": "content"
     },
     {
       "id": 12,
-      "requirement": "Synthesize a unified management overview.",
+      "requirement": "Describe major non-insulin medication classes",
+      "category": "content"
+    },
+    {
+      "id": 13,
+      "requirement": "Describe insulin treatment",
+      "category": "content"
+    },
+    {
+      "id": 14,
+      "requirement": "Explain treatment selection considerations",
+      "category": "analysis"
+    },
+    {
+      "id": 15,
+      "requirement": "Summarize strategies in accessible language",
       "category": "conclusion"
     }
   ]

@@ -1,19 +1,19 @@
 {
   "gold_insights": [
     {
-      "insight": "Green, grey, blue, and red bins designate specific waste streams.",
+      "insight": "Green kitchen-waste bins receive three weekly collections",
       "source": "8.txt"
     },
     {
-      "insight": "Kitchen waste requires three weekly pickups across Monday, Wednesday, and Friday.",
+      "insight": "Hazardous red-bin collection occurs first Wednesday monthly",
       "source": "8.txt"
     },
     {
-      "insight": "Mandates four legally binding color-coded waste separation streams.",
+      "insight": "Neo-Veridia mandates four legally color-coded waste streams",
       "source": "tex.pdf"
     },
     {
-      "insight": "Enforces strict 6:00 AM to 8:00 AM curb-side placement window.",
+      "insight": "Hazardous waste receives strictly limited, zone-specific collection",
       "source": "tex.pdf"
     }
   ]

@@ -1,23 +1,27 @@
 {
   "gold_insights": [
     {
-      "insight": "Shows the natural mineral form of perovskite.",
+      "insight": "Shows perovskite in its natural mineral form",
       "source": "img.jpg"
     },
     {
-      "insight": "Certified 17.2% total-area efficiency achieved on 7200 square centimeter modules.",
+      "insight": "Displays dark, cubic crystals embedded in rock",
+      "source": "img.jpg"
+    },
+    {
+      "insight": "Green GVL/DMSO/2-MeTHF ink enables ambient-air manufacturing",
       "source": "Improved-solvent-systems-for-commercially-viable-perovskite-photovoltaic-modules.pdf"
     },
     {
-      "insight": "Surfactant TAC eliminates edge defects ensuring IEC 61215 reliability certification.",
+      "insight": "SCEP uses TAC to suppress defective large-area film edges",
       "source": "Improved-solvent-systems-for-commercially-viable-perovskite-photovoltaic-modules.pdf"
     },
     {
-      "insight": "Ideal perovskite crystal structure comprises Sr, Ti, and O atoms.",
+      "insight": "Shows corner-sharing TiO6 octahedra in a perovskite lattice",
       "source": "structure.webp"
     },
     {
-      "insight": "The legend identifies Strontium, Titanium, and Oxygen as key components.",
+      "insight": "Labels Sr, Ti, and O atomic sites",
       "source": "structure.webp"
     }
   ]

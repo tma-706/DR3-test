@@ -2,63 +2,78 @@
   "checklist": [
     {
       "id": 1,
-      "requirement": "Cite attached Harvard docx file.",
+      "requirement": "Cite uploaded Harvard DOCX aid details",
       "category": "evidence"
     },
     {
       "id": 2,
-      "requirement": "Cite attached Harvard csv file.",
+      "requirement": "Cite uploaded Harvard CSV cost data",
       "category": "evidence"
     },
     {
       "id": 3,
-      "requirement": "Mention specific tuition cost figures.",
+      "requirement": "Mention official financial-need formulas",
       "category": "content"
     },
     {
       "id": 4,
-      "requirement": "Mention specific financial aid breakdowns.",
+      "requirement": "Describe federal financial-need calculations",
       "category": "content"
     },
     {
       "id": 5,
-      "requirement": "Explain official need calculation formulas.",
-      "category": "analysis"
-    },
-    {
-      "id": 6,
-      "requirement": "Describe the core aid determination system.",
+      "requirement": "Describe institutional financial-need calculations",
       "category": "content"
     },
     {
-      "id": 7,
-      "requirement": "Analyze net price calculator accuracy.",
+      "id": 6,
+      "requirement": "Explain estimated family contribution components",
       "category": "analysis"
     },
     {
-      "id": 8,
-      "requirement": "Compare estimates against actual contributions.",
+      "id": 7,
+      "requirement": "Explain differences between federal and institutional formulas",
       "category": "comparison"
     },
     {
+      "id": 8,
+      "requirement": "Mention net price calculator methodology",
+      "category": "content"
+    },
+    {
       "id": 9,
-      "requirement": "Cite peer-reviewed aid effectiveness studies.",
-      "category": "evidence"
+      "requirement": "Analyze net price calculator reliability",
+      "category": "analysis"
     },
     {
       "id": 10,
-      "requirement": "Analyze enrollment rate correlations.",
-      "category": "analysis"
+      "requirement": "Mention net price calculator limitations",
+      "category": "content"
     },
     {
       "id": 11,
-      "requirement": "Conclude on policy effectiveness.",
-      "category": "conclusion"
+      "requirement": "Cite research assessing financial-aid effectiveness",
+      "category": "evidence"
     },
     {
       "id": 12,
-      "requirement": "Describe initial estimation concerns.",
+      "requirement": "Analyze financial aid effects on enrollment",
       "category": "analysis"
+    },
+    {
+      "id": 13,
+      "requirement": "Compare enrollment effects across student groups",
+      "category": "comparison"
+    },
+    {
+      "id": 14,
+      "requirement": "Explain research limitations and causal evidence",
+      "category": "analysis"
+    },
+    {
+      "id": 15,
+      "requirement": "Draw conclusions about estimate accuracy and policy effectiveness",
+      "category": "conclusion"
     }
   ]
 }

@@ -2,52 +2,62 @@
   "checklist": [
     {
       "id": 1,
-      "requirement": "Explain selective attention mechanism",
+      "requirement": "Explain selective attention",
       "category": "content"
     },
     {
       "id": 2,
-      "requirement": "Describe distraction suppression process",
-      "category": "content"
+      "requirement": "Describe how attention prioritizes information",
+      "category": "analysis"
     },
     {
       "id": 3,
-      "requirement": "Confirm frontal lobe involvement",
+      "requirement": "Explain how distractions are suppressed",
       "category": "content"
     },
     {
       "id": 4,
-      "requirement": "Confirm parietal lobe involvement",
+      "requirement": "Mention frontal lobe involvement",
       "category": "content"
     },
     {
       "id": 5,
-      "requirement": "Link lobes to attention networks",
-      "category": "analysis"
+      "requirement": "Mention parietal lobe involvement",
+      "category": "content"
     },
     {
       "id": 6,
-      "requirement": "Describe standard testing methodologies",
-      "category": "evidence"
+      "requirement": "Explain frontal-parietal attention coordination",
+      "category": "analysis"
     },
     {
       "id": 7,
-      "requirement": "Explain frontal lobe injury effects",
+      "requirement": "Describe attention experiments",
       "category": "content"
     },
     {
       "id": 8,
-      "requirement": "Explain parietal lobe injury effects",
+      "requirement": "Mention selective attention task designs",
       "category": "content"
     },
     {
       "id": 9,
-      "requirement": "Maintain simple explanatory tone",
-      "category": "analysis"
+      "requirement": "Mention brain-imaging methods",
+      "category": "evidence"
     },
     {
       "id": 10,
-      "requirement": "Clarify neural interaction dynamics",
+      "requirement": "Describe frontal lobe injury effects",
+      "category": "content"
+    },
+    {
+      "id": 11,
+      "requirement": "Describe parietal lobe injury effects",
+      "category": "content"
+    },
+    {
+      "id": 12,
+      "requirement": "Explain spatial neglect after parietal damage",
       "category": "analysis"
     }
   ]

@@ -2,72 +2,77 @@
   "checklist": [
     {
       "id": 1,
-      "requirement": "Cite attached 2026 solar guide.",
+      "requirement": "Cite the guide's stated system capacity",
       "category": "evidence"
     },
     {
       "id": 2,
-      "requirement": "Cite attached financial sheet data.",
+      "requirement": "Cite the photo's apparent system capacity",
       "category": "evidence"
     },
     {
       "id": 3,
-      "requirement": "Mention attached installation photo.",
-      "category": "evidence"
-    },
-    {
-      "id": 4,
-      "requirement": "Analyze six versus fifteen kilowatt discrepancy.",
+      "requirement": "Explain the capacity discrepancy",
       "category": "analysis"
     },
     {
+      "id": 4,
+      "requirement": "Describe today's residential solar market",
+      "category": "content"
+    },
+    {
       "id": 5,
-      "requirement": "Describe current residential solar market.",
+      "requirement": "Mention current residential solar installation costs",
       "category": "content"
     },
     {
       "id": 6,
-      "requirement": "Mention typical residential solar costs.",
+      "requirement": "Mention available residential solar financial benefits",
       "category": "content"
     },
     {
       "id": 7,
-      "requirement": "Outline primary financial benefits of solar.",
-      "category": "content"
+      "requirement": "Cite financial sheet assumptions",
+      "category": "evidence"
     },
     {
       "id": 8,
-      "requirement": "Define selection criteria for efficient panels.",
-      "category": "content"
+      "requirement": "Analyze the project's financial returns",
+      "category": "analysis"
     },
     {
       "id": 9,
-      "requirement": "List traits of reliable solar installers.",
+      "requirement": "Describe panel efficiency metrics",
       "category": "content"
     },
     {
       "id": 10,
-      "requirement": "Describe residential solar technology.",
-      "category": "content"
+      "requirement": "Explain how to select efficient panels",
+      "category": "analysis"
     },
     {
       "id": 11,
-      "requirement": "Describe alternative home renewable options.",
+      "requirement": "Describe criteria for choosing installers",
       "category": "content"
     },
     {
       "id": 12,
-      "requirement": "Explain key differences between systems.",
-      "category": "comparison"
-    },
-    {
-      "id": 13,
-      "requirement": "Analyze relevance of uploaded documents.",
+      "requirement": "Explain how to evaluate installer quality",
       "category": "analysis"
     },
     {
+      "id": 13,
+      "requirement": "Describe alternative home renewable energy options",
+      "category": "content"
+    },
+    {
       "id": 14,
-      "requirement": "Conclude if 2026 data remains valid.",
+      "requirement": "Compare solar with alternative renewable options",
+      "category": "comparison"
+    },
+    {
+      "id": 15,
+      "requirement": "Conclude whether the files remain relevant",
       "category": "conclusion"
     }
   ]

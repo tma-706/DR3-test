@@ -1,19 +1,19 @@
 {
   "gold_insights": [
     {
-      "insight": "The chart includes symbols for gas under pressure and environmental hazards.",
+      "insight": "Chart identifies nine hazards, including explosives, flammables, oxidizers, and corrosives.",
       "source": "Generated Image January 12, 2026 - 8_41PM.png"
     },
     {
-      "insight": "The guide advises always referring to the Safety Data Sheet (SDS).",
+      "insight": "Chart advises consulting the Safety Data Sheet for hazard guidance.",
       "source": "Generated Image January 12, 2026 - 8_41PM.png"
     },
     {
-      "insight": "Title 8 CCR requires a written Injury and Illness Prevention Plan (IIPP).",
+      "insight": "California CCR 3203 requires written Injury and Illness Prevention Programs",
       "source": "laboratory_laboratorysafetymanual.pdf"
     },
     {
-      "insight": "Supervisors must develop SOPs for hazardous chemicals and particularly hazardous substances.",
+      "insight": "LHAT determines PPE and requires annual certification or hazard-change updates",
       "source": "laboratory_laboratorysafetymanual.pdf"
     }
   ]

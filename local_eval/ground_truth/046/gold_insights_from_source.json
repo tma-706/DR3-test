@@ -1,27 +1,27 @@
 {
   "gold_insights": [
     {
-      "insight": "Best estimates of current global warming remain below 1.5°C.",
+      "insight": "Three methods estimate 2024 warming between 1.34°C and 1.41°C",
       "source": "Best estimates of current global warming.png"
     },
     {
-      "insight": "Human contribution to warming in 2024 is estimated at 1.34°C.",
+      "insight": "Human contribution method estimates 2024 warming at 1.34°C",
       "source": "Best estimates of current global warming.png"
     },
     {
-      "insight": "Global temperatures reached near 1.6°C above 1850-1900 baseline by 2024.",
+      "insight": "Six datasets show near-identical warming trajectories",
       "source": "Gobal Mean Temperature.png"
     },
     {
-      "insight": "Temperature anomalies are measured relative to a pre-industrial 1850-1900 baseline.",
+      "insight": "Temperatures reached roughly 1.5°C above 1850–1900",
       "source": "Gobal Mean Temperature.png"
     },
     {
-      "insight": "Human-driven greenhouse gas emissions cause record global warming.",
+      "insight": "WMO identifies greenhouse gases as the primary warming driver",
       "source": "WMO report documents spiralling weather and climate impacts.pdf"
     },
     {
-      "insight": "Ocean warming and extreme weather trigger irreversible damage and food crises.",
+      "insight": "2024 warming included smaller contributions from El Niño and other factors",
       "source": "WMO report documents spiralling weather and climate impacts.pdf"
     }
   ]

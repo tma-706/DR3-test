@@ -1,7 +1,13 @@
 from pathlib import Path
 
+import pymupdf
+
 from evaluators.utils.base import EvalConfig, EvalResult
-from local_eval_tools.adapters import LocalCitationCoverageEvaluator, explicit_citations
+from local_eval_tools.adapters import (
+    LocalCitationCoverageEvaluator,
+    explicit_citations,
+    list_user_files,
+)
 from local_eval_tools.report_preprocessor import preprocess_report
 from local_eval_tools import runner
 from local_eval_tools.runner import (
@@ -19,15 +25,18 @@ def test_normalize_task_id():
     assert normalize_task_id("050") == "050"
 
 
-def test_cc_requires_explicit_citation():
+def test_cc_keeps_official_dr3_full_text_fallback():
     evaluator = LocalCitationCoverageEvaluator()
     result = evaluator.evaluate(
         "The prose mentions alpha.pdf but has no citation marker.",
         required_titles=["alpha.pdf"],
     )
-    assert result.score == 0
+    assert result.score == 100
     assert result.details["status"] == "success"
     assert result.details["extracted_citations"] == []
+    assert result.details["explicitly_cited"] == []
+    assert result.details["match_details"]["alpha.pdf"]["match_type"] == "text_contains"
+    assert result.details["scoring_mechanism"] == "official_dr3"
 
 
 def test_cc_matches_only_official_filenames():
@@ -39,7 +48,16 @@ def test_cc_matches_only_official_filenames():
     assert result.score == 50
     assert result.details["cited"] == ["alpha.pdf"]
     assert result.details["missing"] == ["table.csv"]
-    assert "text_contains" in result.details["fallbacks_disabled"]
+    assert result.details["explicitly_cited"] == ["alpha.pdf"]
+    assert result.details["scope"] == "official_user_files_only"
+
+
+def test_user_file_scope_excludes_dr3_control_files(tmp_path: Path):
+    (tmp_path / "source.txt").write_text("data", encoding="utf-8")
+    (tmp_path / "useful_search.json").write_text("[]", encoding="utf-8")
+    (tmp_path / "task.md").write_text("task", encoding="utf-8")
+
+    assert [path.name for path in list_user_files(tmp_path)] == ["source.txt"]
 
 
 def test_internal_page_markers_are_not_citations():
@@ -54,6 +72,33 @@ def test_latex_options_are_not_citations():
         r"[HUD-sec8-FY25.pdf]"
     )
     assert explicit_citations(text) == ["HUD-sec8-FY25.pdf"]
+
+
+def test_markdown_links_are_not_user_file_citations():
+    evaluator = LocalCitationCoverageEvaluator()
+    result = evaluator.evaluate(
+        "Official website [hud.gov](https://www.hud.gov).",
+        required_titles=["HUD-sec8-FY25.pdf"],
+    )
+
+    assert result.score == 0
+    assert result.details["extracted_citations"] == []
+    assert result.details["cited"] == []
+
+
+def test_file_citation_still_matches_beside_markdown_link():
+    evaluator = LocalCitationCoverageEvaluator()
+    result = evaluator.evaluate(
+        "Income limits use ACS data [HUD-sec8-FY25.pdf, Page 2]. "
+        "Official website [hud.gov](https://www.hud.gov).",
+        required_titles=["HUD-sec8-FY25.pdf"],
+    )
+
+    assert result.score == 100
+    assert result.details["cited"] == ["HUD-sec8-FY25.pdf"]
+    assert result.details["extracted_citations"] == [
+        "HUD-sec8-FY25.pdf, Page 2"
+    ]
 
 
 def test_fa_skips_unmatched_bracket_candidates(tmp_path: Path, monkeypatch):
@@ -81,6 +126,35 @@ def test_fa_skips_unmatched_bracket_candidates(tmp_path: Path, monkeypatch):
     assert result.score == 0.0
     assert result.details["matched_citations"] == []
     assert result.details["extracted_citations"] == ["Diamond"]
+
+
+def test_fa_keeps_zero_for_filename_mention_without_explicit_citation(
+    tmp_path: Path, monkeypatch
+):
+    coverage = LocalCitationCoverageEvaluator().evaluate(
+        "The prose mentions source.pdf without a citation marker.",
+        required_titles=["source.pdf"],
+    )
+    inputs = TaskInputs(
+        task="012",
+        query="Question",
+        query_data={"task": "012", "query": "Question"},
+        report_path=tmp_path / "final_report.pdf",
+        dataset_dir=tmp_path,
+        checklist_path=tmp_path / "checklist.json",
+        insights_path=tmp_path / "gold.json",
+    )
+
+    def fail_if_called(*args, **kwargs):
+        raise AssertionError("FA must not run without an explicit user-file citation")
+
+    monkeypatch.setattr(runner, "LocalFactualAccuracyEvaluator", fail_if_called)
+    result = _factual_accuracy("source.pdf", inputs, EvalConfig(), coverage)
+
+    assert coverage.score == 100
+    assert coverage.details["explicitly_cited"] == []
+    assert result.score == 0
+    assert result.details["policy"] == "legitimate_zero"
 
 
 def test_markdown_preprocess_is_complete_and_cacheable(tmp_path: Path):
@@ -113,6 +187,36 @@ def test_latex_preprocess_reads_source_text_without_rendering(tmp_path: Path):
     assert result.metadata["source_format"] == "tex"
     assert result.metadata["pages"] is None
     assert result.metadata["vision_used"] == []
+
+
+def test_pdf_md_and_tex_reports_use_the_same_user_file_cc_flow(tmp_path: Path):
+    report_text = "Supported finding [source.txt]."
+    md_path = tmp_path / "final_report.md"
+    tex_path = tmp_path / "final_report.tex"
+    pdf_path = tmp_path / "final_report.pdf"
+    md_path.write_text(report_text, encoding="utf-8")
+    tex_path.write_text(report_text, encoding="utf-8")
+
+    document = pymupdf.open()
+    page = document.new_page()
+    page.insert_text((72, 72), report_text)
+    document.save(pdf_path)
+    document.close()
+
+    config = EvalConfig(api_key="", base_url="", model_name="", temperature=0)
+    evaluator = LocalCitationCoverageEvaluator()
+    for report_path in (md_path, tex_path, pdf_path):
+        preprocessed = preprocess_report(
+            report_path,
+            tmp_path / report_path.suffix.lstrip("."),
+            config,
+        )
+        result = evaluator.evaluate(
+            preprocessed.text,
+            required_titles=["source.txt"],
+        )
+        assert result.score == 100
+        assert result.details["explicitly_cited"] == ["source.txt"]
 
 
 def test_zero_is_success_but_negative_score_is_error():

@@ -1,27 +1,27 @@
 {
   "gold_insights": [
     {
-      "insight": "Image displays bright accretion ring surrounding dark central black hole shadow.",
+      "insight": "Shows a bright asymmetric ring surrounding a dark central shadow",
       "source": "black_hole.png"
     },
     {
-      "insight": "This visual confirms the dark event horizon predicted by general relativity.",
+      "insight": "The image depicts emission from material around the black hole",
       "source": "black_hole.png"
     },
     {
-      "insight": "Einstein’s 1915 equations predicted a dark shadow in a light ring.",
+      "insight": "EHT imaged M87’s 6.5-billion-solar-mass black hole and shadow",
       "source": "First-ever picture of a black hole unveiled _ National Geographic_compressed.pdf"
     },
     {
-      "insight": "Singularities indicate a mathematical gap in gravity understanding.",
+      "insight": "M87’s uneven glowing ring matches Einstein’s predicted shadow geometry",
       "source": "First-ever picture of a black hole unveiled _ National Geographic_compressed.pdf"
     },
     {
-      "insight": "Trapped surfaces imply inevitable space-time singularity development.",
+      "insight": "Penrose's theorem links trapped surfaces to inevitable spacetime singularities.",
       "source": "PhysRevLett.14.57.pdf"
     },
     {
-      "insight": "Exterior observers cannot see matter cross the Schwarzschild radius.",
+      "insight": "Avoiding singularities may require negative energy or quantum-gravitational effects.",
       "source": "PhysRevLett.14.57.pdf"
     }
   ]

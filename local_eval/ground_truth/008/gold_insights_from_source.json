@@ -1,19 +1,19 @@
 {
   "gold_insights": [
     {
-      "insight": "Diabetes food plate recommends half non-starchy vegetables per meal.",
+      "insight": "Recommends half non-starchy vegetables, including broccoli, cucumber, spinach, and tomatoes.",
       "source": "31.png"
     },
     {
-      "insight": "Meal plan includes quarter lean protein and quarter healthy carbs.",
+      "insight": "Divides remaining portions between lean protein, healthy carbohydrates, and water.",
       "source": "31.png"
     },
     {
-      "insight": "Covers screening, diagnosis, and treatment across all age groups",
+      "insight": "ADA Standards update annually as a living document",
       "source": "dc26sint.pdf"
     },
     {
-      "insight": "Relies on systematic literature reviews and expert consensus",
+      "insight": "Recommendations span screening, diagnosis, treatment, complications, and technology",
       "source": "dc26sint.pdf"
     }
   ]

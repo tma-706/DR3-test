@@ -2,53 +2,73 @@
   "checklist": [
     {
       "id": 1,
-      "requirement": "Reference attached graphene structure image.",
-      "category": "evidence"
+      "requirement": "Describe graphene's two-dimensional atomic structure",
+      "category": "content"
     },
     {
       "id": 2,
-      "requirement": "Provide scientific overview of graphene.",
+      "requirement": "Mention graphene's hexagonal lattice arrangement",
       "category": "content"
     },
     {
       "id": 3,
-      "requirement": "Explain primary synthesis methods.",
-      "category": "content"
+      "requirement": "Explain graphene's carbon bonding",
+      "category": "analysis"
     },
     {
       "id": 4,
-      "requirement": "Describe experimental study techniques.",
+      "requirement": "Describe graphene production methods",
       "category": "content"
     },
     {
       "id": 5,
-      "requirement": "Detail mechanical strength properties.",
+      "requirement": "Mention mechanical exfoliation",
       "category": "content"
     },
     {
       "id": 6,
-      "requirement": "Explain electrical conductivity behavior.",
+      "requirement": "Mention chemical vapor deposition",
       "category": "content"
     },
     {
       "id": 7,
-      "requirement": "Discuss chemical functionalization methods.",
+      "requirement": "Describe methods scientists use to study graphene",
       "category": "content"
     },
     {
       "id": 8,
-      "requirement": "Connect structure to observed properties.",
-      "category": "analysis"
+      "requirement": "Mention microscopy techniques for graphene",
+      "category": "content"
     },
     {
       "id": 9,
-      "requirement": "Validate claims with established science.",
-      "category": "analysis"
+      "requirement": "Mention graphene's physical strength",
+      "category": "content"
     },
     {
       "id": 10,
-      "requirement": "Conclude with practical significance.",
-      "category": "conclusion"
+      "requirement": "Explain graphene's electrical conductivity",
+      "category": "analysis"
+    },
+    {
+      "id": 11,
+      "requirement": "Describe graphene's distinctive electronic behavior",
+      "category": "content"
+    },
+    {
+      "id": 12,
+      "requirement": "Explain graphene's chemical modification methods",
+      "category": "analysis"
+    },
+    {
+      "id": 13,
+      "requirement": "Mention chemical functionalization of graphene",
+      "category": "content"
+    },
+    {
+      "id": 14,
+      "requirement": "Describe how modifications affect graphene properties",
+      "category": "analysis"
     }
   ]
 }

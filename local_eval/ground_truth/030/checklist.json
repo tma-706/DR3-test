@@ -2,63 +2,78 @@
   "checklist": [
     {
       "id": 1,
-      "requirement": "Cite Tesla specifications from attachments.",
+      "requirement": "Cite the Tesla specification",
       "category": "evidence"
     },
     {
       "id": 2,
-      "requirement": "Reference charging list details.",
+      "requirement": "Cite the charging list",
       "category": "evidence"
     },
     {
       "id": 3,
-      "requirement": "Summarize current EV market status.",
-      "category": "content"
+      "requirement": "Cite the personal notes",
+      "category": "evidence"
     },
     {
       "id": 4,
-      "requirement": "Compare EV emissions to gasoline cars.",
-      "category": "comparison"
-    },
-    {
-      "id": 5,
-      "requirement": "Evaluate overall environmental benefits of EVs.",
-      "category": "analysis"
-    },
-    {
-      "id": 6,
-      "requirement": "Project future EV market trends.",
-      "category": "analysis"
-    },
-    {
-      "id": 7,
-      "requirement": "List actual government EV incentives.",
+      "requirement": "Describe electric vehicle environmental benefits",
       "category": "content"
     },
     {
+      "id": 5,
+      "requirement": "Describe electric vehicle environmental drawbacks",
+      "category": "content"
+    },
+    {
+      "id": 6,
+      "requirement": "Compare electric and gasoline vehicle emissions",
+      "category": "comparison"
+    },
+    {
+      "id": 7,
+      "requirement": "Analyze whether electric vehicles are greener",
+      "category": "analysis"
+    },
+    {
       "id": 8,
-      "requirement": "Clarify eligibility for tax credits.",
+      "requirement": "Describe global electric vehicle market trends",
       "category": "content"
     },
     {
       "id": 9,
-      "requirement": "Identify common owner complaints.",
-      "category": "content"
+      "requirement": "Analyze the market's future direction",
+      "category": "analysis"
     },
     {
       "id": 10,
-      "requirement": "Analyze EV range limitations.",
-      "category": "analysis"
+      "requirement": "Mention applicable government incentives",
+      "category": "content"
     },
     {
       "id": 11,
-      "requirement": "Assess battery degradation risks.",
-      "category": "analysis"
+      "requirement": "Explain government incentive eligibility requirements",
+      "category": "content"
     },
     {
       "id": 12,
-      "requirement": "Conclude on overall EV ownership viability.",
-      "category": "conclusion"
+      "requirement": "Clarify government incentive limitations",
+      "category": "content"
+    },
+    {
+      "id": 13,
+      "requirement": "Describe electric vehicle range limitations",
+      "category": "content"
+    },
+    {
+      "id": 14,
+      "requirement": "Describe electric vehicle battery concerns",
+      "category": "content"
+    },
+    {
+      "id": 15,
+      "requirement": "Mention other common electric vehicle ownership headaches",
+      "category": "content"
     }
   ]
 }

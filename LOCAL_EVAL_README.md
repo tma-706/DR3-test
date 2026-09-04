@@ -3,8 +3,10 @@
 Pipeline này chấm report local bằng đúng 5 metric DR3:
 
 - **IR**: Information Recall, dùng gold_insights_from_source.json.
-- **CC**: Citation Coverage, chỉ tính citation marker khớp filename user file thật.
-- **FA**: Factual Accuracy, chỉ kiểm tra claim có citation với user file thật.
+- **CC**: Citation Coverage, dùng cơ chế extract/match/fallback/tính điểm gốc của DR3,
+  nhưng danh sách source bắt buộc chỉ gồm official user files.
+- **FA**: Factual Accuracy, dùng claim extraction, source verification, prompt và công
+  thức tính điểm gốc; chỉ kiểm tra claim có explicit citation với user file thật.
 - **IF**: Instruction Following, dùng checklist.json.
 - **DQ**: Depth Quality, dùng query gốc trong query.jsonl.
 
@@ -113,7 +115,7 @@ summary.json
 
 Mỗi metric có status, score, details và thông tin cache. Quy ước:
 
-- Không có explicit citation: CC = 0, status = success.
+- Không có user file nào được cơ chế CC gốc match: CC = 0, status = success.
 - Không có explicit cited claim-source pair: FA = 0, status = success.
 - Thiếu file/query/gold, lỗi parse hoặc lỗi API/auth: score = null, status = error.
 - Zero hợp lệ không bị đổi thành lỗi hoặc bị bỏ khỏi summary.
@@ -128,4 +130,6 @@ uv run python local_eval_runner.py --task 008 --dry-run
 uv run python local_eval_runner.py --all --dry-run
 ~~~
 
-Prompts/rubrics của 5 evaluator gốc được giữ nguyên. Các thay đổi trực tiếp trong evaluator gốc chỉ là config OpenRouter, raw-text response cho DQ và bỏ giới hạn cắt report của FA.
+Prompts/rubrics và source code của evaluator CC/FA gốc được giữ nguyên. Adapter local chỉ
+thay scope source thành official user files, nối API client đã cấu hình, bảo vệ zero hợp lệ,
+và tiền xử lý report/source PDF khi cần.
