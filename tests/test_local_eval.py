@@ -5,9 +5,11 @@ import pymupdf
 from evaluators.utils.base import EvalConfig, EvalResult
 from local_eval_tools.adapters import (
     LocalCitationCoverageEvaluator,
+    LocalFactualAccuracyEvaluator,
     explicit_citations,
     list_user_files,
 )
+from evaluators.factual_accuracy import FactualAccuracyAgentEvaluator
 from local_eval_tools.citation_resolver import resolve_report_citations
 from local_eval_tools.report_preprocessor import preprocess_report
 from local_eval_tools import runner
@@ -268,6 +270,144 @@ def test_fa_keeps_zero_for_filename_mention_without_explicit_citation(
     assert coverage.details["explicitly_cited"] == []
     assert result.score == 0
     assert result.details["policy"] == "legitimate_zero"
+
+
+def test_local_fa_retries_only_technical_or_missing_results(monkeypatch):
+    calls = []
+
+    def fake_verify(self, claims, source_info, client):
+        calls.append([claim["id"] for claim in claims])
+        if len(calls) == 1:
+            return [
+                {
+                    "id": 1,
+                    "supported": True,
+                    "source_found": True,
+                    "explanation": "Supported by the source",
+                },
+                {
+                    "id": 2,
+                    "supported": False,
+                    "source_found": True,
+                    "explanation": "Parse error: response=empty",
+                },
+                # Claim 3 simulates an ID omitted by the judge model.
+            ]
+        return [
+            {
+                "id": claim["id"],
+                "supported": claim["id"] == 3,
+                "source_found": True,
+                "explanation": (
+                    "Supported on retry"
+                    if claim["id"] == 3
+                    else "Source contradicts the claim"
+                ),
+            }
+            for claim in claims
+        ]
+
+    monkeypatch.setattr(
+        FactualAccuracyAgentEvaluator,
+        "_verify_batch_with_api_thread",
+        fake_verify,
+    )
+    monkeypatch.setenv("LOCAL_FA_MAX_ATTEMPTS", "3")
+    monkeypatch.setenv("LOCAL_FA_RETRY_DELAY", "0")
+    evaluator = object.__new__(LocalFactualAccuracyEvaluator)
+    evaluator.fa_retry_audit = []
+    claims = [{"id": 1}, {"id": 2}, {"id": 3}]
+
+    results = evaluator._verify_batch_with_api_thread(
+        claims,
+        {"found": True, "type": "text", "content": "source"},
+        client=None,
+    )
+
+    assert calls == [[1, 2, 3], [2, 3]]
+    assert [result["id"] for result in results] == [1, 2, 3]
+    assert results[0]["supported"] is True
+    assert results[1]["supported"] is False
+    assert results[1]["explanation"] == "Source contradicts the claim"
+    assert results[2]["supported"] is True
+
+
+def test_local_fa_marks_exhausted_technical_failures_as_error(monkeypatch):
+    def fake_evaluate(self, result_text, **kwargs):
+        return EvalResult(
+            "factual_accuracy",
+            0.0,
+            {
+                "verification_result": {
+                    "verifications": [
+                        {
+                            "id": 7,
+                            "supported": False,
+                            "source_found": True,
+                            "explanation": "[Doc: source.pdf]: Parse error: response=empty",
+                            "citation_results": [
+                                {
+                                    "citation": "[Doc: source.pdf]",
+                                    "supported": False,
+                                    "explanation": "Parse error: response=empty",
+                                }
+                            ],
+                        }
+                    ]
+                }
+            },
+        )
+
+    monkeypatch.setattr(FactualAccuracyAgentEvaluator, "evaluate", fake_evaluate)
+    evaluator = object.__new__(LocalFactualAccuracyEvaluator)
+    evaluator.citation_resolution = None
+    evaluator.source_visual_audit = []
+    evaluator.fa_retry_audit = []
+
+    result = evaluator.evaluate("Claim [Doc: source.pdf]")
+
+    assert result.score == -1
+    assert result.details["status"] == "failed"
+    assert result.details["technical_failure_claim_ids"] == [7]
+    assert result.details["partial_score_before_error"] == 0.0
+
+
+def test_local_fa_preserves_genuine_zero(monkeypatch):
+    def fake_evaluate(self, result_text, **kwargs):
+        return EvalResult(
+            "factual_accuracy",
+            0.0,
+            {
+                "verification_result": {
+                    "verifications": [
+                        {
+                            "id": 1,
+                            "supported": False,
+                            "source_found": True,
+                            "explanation": "The source directly contradicts the claim",
+                            "citation_results": [
+                                {
+                                    "citation": "[Doc: source.pdf]",
+                                    "supported": False,
+                                    "explanation": "The source directly contradicts the claim",
+                                }
+                            ],
+                        }
+                    ]
+                }
+            },
+        )
+
+    monkeypatch.setattr(FactualAccuracyAgentEvaluator, "evaluate", fake_evaluate)
+    evaluator = object.__new__(LocalFactualAccuracyEvaluator)
+    evaluator.citation_resolution = None
+    evaluator.source_visual_audit = []
+    evaluator.fa_retry_audit = []
+
+    result = evaluator.evaluate("False claim [Doc: source.pdf]")
+
+    assert result.score == 0.0
+    assert "technical_failure_claim_ids" not in result.details
 
 
 def test_markdown_preprocess_is_complete_and_cacheable(tmp_path: Path):

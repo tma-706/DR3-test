@@ -4,8 +4,9 @@ from __future__ import annotations
 
 import os
 import re
+import time
 from pathlib import Path
-from typing import Dict, Iterable, List, Optional
+from typing import Any, Dict, Iterable, List, Optional
 
 import pymupdf
 from openai import OpenAI
@@ -48,6 +49,54 @@ _LATEX_OPTION_RE = re.compile(r"(\\(?:[A-Za-z@]+|\\))\s*\[[^\[\]\r\n]*\]")
 _MARKDOWN_INLINE_LINK_RE = re.compile(
     r"!?\[([^\[\]\r\n]*)\]\((?:\\.|[^()\r\n]|\([^()\r\n]*\))*\)"
 )
+
+_FA_RETRYABLE_MARKERS = (
+    "parse error",
+    "api error",
+    "not verified",
+    "connection error",
+    "timeout",
+    "max retries",
+    "cannot prepare",
+    "compression failed",
+    "no result",
+    "empty response",
+    "response=empty",
+    "model omitted claim id",
+)
+
+
+def _fa_retry_reason(result: Optional[Dict[str, Any]]) -> Optional[str]:
+    """Return a machine-failure reason, without reclassifying factual falsehoods."""
+    if result is None:
+        return "missing_result"
+    if not result.get("source_found", True):
+        return None
+    explanation = str(result.get("explanation", "")).strip().casefold()
+    for marker in _FA_RETRYABLE_MARKERS:
+        if marker in explanation:
+            return marker
+    if not result.get("supported", False) and not explanation:
+        return "empty_explanation"
+    return None
+
+
+def _fa_technical_failure_ids(details: Dict[str, Any]) -> List[Any]:
+    """Find claims whose final verdict is a technical failure, not factual false."""
+    failed: List[Any] = []
+    verifications = details.get("verification_result", {}).get("verifications", [])
+    for verification in verifications:
+        reason = _fa_retry_reason(verification)
+        if reason is None:
+            for citation_result in verification.get("citation_results", []):
+                candidate = dict(citation_result)
+                candidate["source_found"] = verification.get("source_found", True)
+                reason = _fa_retry_reason(candidate)
+                if reason is not None:
+                    break
+        if reason is not None:
+            failed.append(verification.get("id"))
+    return failed
 
 
 def _without_latex_optional_arguments(text: str) -> str:
@@ -171,6 +220,7 @@ class LocalFactualAccuracyEvaluator(FactualAccuracyAgentEvaluator):
         self.local_config = config
         self.citation_resolution = citation_resolution
         self.source_visual_audit: List[Dict] = []
+        self.fa_retry_audit: List[Dict[str, Any]] = []
         self.api_client = OpenAI(
             api_key=config.api_key,
             base_url=config.base_url,
@@ -181,6 +231,7 @@ class LocalFactualAccuracyEvaluator(FactualAccuracyAgentEvaluator):
 
     def evaluate(self, result_text: str, **kwargs) -> EvalResult:
         self.source_visual_audit = []
+        self.fa_retry_audit = []
         effective_text = result_text
         if self.citation_resolution is not None:
             effective_text = self.citation_resolution.enrich_for_factual_accuracy(
@@ -191,6 +242,23 @@ class LocalFactualAccuracyEvaluator(FactualAccuracyAgentEvaluator):
             result.details["citation_resolution"] = self.citation_resolution.to_dict()
         if self.source_visual_audit:
             result.details["source_visual_preprocessing"] = self.source_visual_audit
+        if self.fa_retry_audit:
+            result.details["local_retry_audit"] = self.fa_retry_audit
+        technical_failure_ids = _fa_technical_failure_ids(result.details)
+        if technical_failure_ids:
+            partial_score = result.score
+            result.score = -1
+            result.details.update(
+                {
+                    "status": "failed",
+                    "error": (
+                        "Factual-accuracy verification remained incomplete after "
+                        f"local retries for {len(technical_failure_ids)} claim(s)"
+                    ),
+                    "technical_failure_claim_ids": technical_failure_ids,
+                    "partial_score_before_error": partial_score,
+                }
+            )
         return result
 
     def _get_source_key(self, citations: List[str], source_type: str) -> str:
@@ -258,7 +326,70 @@ class LocalFactualAccuracyEvaluator(FactualAccuracyAgentEvaluator):
                 "content": "\n\n".join(pages),
                 "name": file_path.name,
             }
-        return super()._verify_batch_with_api_thread(claims, source_info, client)
+        max_attempts = max(1, int(os.getenv("LOCAL_FA_MAX_ATTEMPTS", "3")))
+        retry_delay = max(0.0, float(os.getenv("LOCAL_FA_RETRY_DELAY", "10")))
+        pending = list(claims)
+        completed: Dict[Any, Dict[str, Any]] = {}
+        batch_audit: Dict[str, Any] = {
+            "claim_ids": [claim.get("id") for claim in claims],
+            "attempts": [],
+        }
+
+        for attempt in range(1, max_attempts + 1):
+            attempted_ids = [claim.get("id") for claim in pending]
+            raw_results = super()._verify_batch_with_api_thread(
+                pending, source_info, client
+            )
+            returned = {
+                result.get("id"): result
+                for result in (raw_results or [])
+                if isinstance(result, dict) and result.get("id") is not None
+            }
+            retry_claims: List[Dict] = []
+            retry_reasons: Dict[str, str] = {}
+
+            for claim in pending:
+                claim_id = claim.get("id")
+                result = returned.get(claim_id)
+                if result is None:
+                    result = {
+                        "id": claim_id,
+                        "supported": False,
+                        "source_found": source_info.get("found", False),
+                        "explanation": "Verification error: model omitted claim id",
+                    }
+                reason = _fa_retry_reason(result)
+                if reason is not None and attempt < max_attempts:
+                    retry_claims.append(claim)
+                    retry_reasons[str(claim_id)] = reason
+                    continue
+                if reason is not None:
+                    result = dict(result)
+                    result["verification_error"] = True
+                    result["verification_error_reason"] = reason
+                completed[claim_id] = result
+
+            batch_audit["attempts"].append(
+                {
+                    "attempt": attempt,
+                    "attempted_claim_ids": attempted_ids,
+                    "retry_claim_ids": [claim.get("id") for claim in retry_claims],
+                    "retry_reasons": retry_reasons,
+                }
+            )
+            pending = retry_claims
+            if not pending:
+                break
+            if retry_delay:
+                time.sleep(retry_delay)
+
+        batch_audit["exhausted_claim_ids"] = [
+            claim_id
+            for claim_id, result in completed.items()
+            if result.get("verification_error")
+        ]
+        self.fa_retry_audit.append(batch_audit)
+        return [completed[claim.get("id")] for claim in claims]
 
 
 def explicit_citations(result_text: str) -> List[str]:
