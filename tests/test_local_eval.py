@@ -8,6 +8,7 @@ from local_eval_tools.adapters import (
     explicit_citations,
     list_user_files,
 )
+from local_eval_tools.citation_resolver import resolve_report_citations
 from local_eval_tools.report_preprocessor import preprocess_report
 from local_eval_tools import runner
 from local_eval_tools.runner import (
@@ -99,6 +100,118 @@ def test_file_citation_still_matches_beside_markdown_link():
     assert result.details["extracted_citations"] == [
         "HUD-sec8-FY25.pdf, Page 2"
     ]
+
+
+def test_numeric_reference_resolves_exact_official_file():
+    report = "Claim grounded in the notice [1].\n\nArbitrary source list\n[1]: alpha.pdf"
+    resolution = resolve_report_citations(report, ["alpha.pdf"])
+
+    assert resolution.resolved_inline_user_files == ["alpha.pdf"]
+    assert resolution.reference_entries["1"].kind == "user_file"
+    assert "notice [Doc: alpha.pdf]" in resolution.enrich_for_factual_accuracy(report)
+
+
+def test_url_reference_is_not_confused_with_local_pdf():
+    report = "External claim [1].\n\n[1]: https://example.com/files/alpha.pdf"
+    resolution = resolve_report_citations(report, ["alpha.pdf"])
+
+    assert resolution.resolved_inline_user_files == []
+    assert resolution.reference_entries["1"].kind == "external_url"
+    assert resolution.external_inline_urls == ["https://example.com/files/alpha.pdf"]
+
+
+def test_mixed_reference_keeps_file_and_url_separate():
+    report = "User-file claim [1].\n\n[1]: alpha.pdf; https://example.com/context"
+    resolution = resolve_report_citations(report, ["alpha.pdf"])
+
+    assert resolution.resolved_inline_user_files == ["alpha.pdf"]
+    assert resolution.reference_entries["1"].kind == "mixed"
+    assert resolution.external_inline_urls == ["https://example.com/context"]
+
+
+def test_bibliography_file_is_not_explicit_until_label_is_used():
+    report = "Uncited prose.\n\nWhatever this section is called\n[1]: alpha.pdf"
+    coverage = LocalCitationCoverageEvaluator().evaluate(
+        report,
+        required_titles=["alpha.pdf"],
+    )
+
+    assert coverage.score == 100  # Preserve official DR3 full-text fallback.
+    assert coverage.details["explicitly_cited"] == []
+
+
+def test_numeric_groups_ranges_footnotes_and_latex_cite_resolve():
+    report = (
+        "Combined claims [1, 2] and [1-2]. Footnote claim [^3]. "
+        r"LaTeX claim \cite{hud}." "\n\n"
+        "References may have any heading\n"
+        "[1]: alpha.pdf\n"
+        "2. beta.csv\n"
+        "[^3]: gamma.txt\n"
+        r"\bibitem{hud} delta.docx"
+    )
+    resolution = resolve_report_citations(
+        report,
+        ["alpha.pdf", "beta.csv", "gamma.txt", "delta.docx"],
+    )
+
+    assert resolution.resolved_inline_user_files == [
+        "alpha.pdf",
+        "beta.csv",
+        "gamma.txt",
+        "delta.docx",
+    ]
+
+
+def test_pdf_normalized_text_uses_same_numeric_resolution():
+    report = (
+        "<!-- REPORT_PAGE: 1 -->\nGrounded PDF claim [1].\n\n"
+        "Documents consulted\n[1]: alpha.pdf"
+    )
+    coverage = LocalCitationCoverageEvaluator().evaluate(
+        report,
+        required_titles=["alpha.pdf"],
+    )
+
+    assert coverage.details["explicitly_cited"] == ["alpha.pdf"]
+    assert coverage.details["citation_resolution"][
+        "resolved_inline_user_files"
+    ] == ["alpha.pdf"]
+
+
+def test_fa_receives_resolved_numeric_citation(tmp_path: Path, monkeypatch):
+    (tmp_path / "alpha.pdf").write_bytes(b"official")
+    report = "Grounded claim [1].\n\n[1]: alpha.pdf"
+    coverage = LocalCitationCoverageEvaluator().evaluate(
+        report,
+        required_titles=["alpha.pdf"],
+    )
+    inputs = TaskInputs(
+        task="012",
+        query="Question",
+        query_data={"task": "012", "query": "Question"},
+        report_path=tmp_path / "final_report.md",
+        dataset_dir=tmp_path,
+        checklist_path=tmp_path / "checklist.json",
+        insights_path=tmp_path / "gold.json",
+    )
+    observed = {}
+
+    class FakeFA:
+        def __init__(self, config, citation_resolution=None):
+            observed["resolution"] = citation_resolution
+
+        def evaluate(self, result_text, **kwargs):
+            observed["text"] = observed["resolution"].enrich_for_factual_accuracy(
+                result_text
+            )
+            return EvalResult("factual_accuracy", 100.0, {"ok": True})
+
+    monkeypatch.setattr(runner, "LocalFactualAccuracyEvaluator", FakeFA)
+    result = _factual_accuracy(report, inputs, EvalConfig(), coverage)
+
+    assert result.score == 100
+    assert "[Doc: alpha.pdf]" in observed["text"]
 
 
 def test_fa_skips_unmatched_bracket_candidates(tmp_path: Path, monkeypatch):

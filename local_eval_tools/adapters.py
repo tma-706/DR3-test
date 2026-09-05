@@ -14,6 +14,10 @@ import evaluators.factual_accuracy as factual_accuracy_module
 from evaluators.citation_coverage import CitationCoverageEvaluator
 from evaluators.factual_accuracy import FactualAccuracyAgentEvaluator
 from evaluators.utils.base import EvalConfig, EvalResult
+from local_eval_tools.citation_resolver import (
+    CitationResolution,
+    resolve_report_citations,
+)
 from local_eval_tools.report_preprocessor import (
     _describe_visual,
     _render_clip,
@@ -124,6 +128,11 @@ class LocalCitationCoverageEvaluator(CitationCoverageEvaluator):
                     explicitly_cited.append(title)
                     break
 
+        citation_resolution = resolve_report_citations(result_text, titles)
+        for title in citation_resolution.resolved_inline_user_files:
+            if title not in explicitly_cited:
+                explicitly_cited.append(title)
+
         result = super().evaluate(
             result_text=result_text,
             required_titles=list(titles),
@@ -135,6 +144,7 @@ class LocalCitationCoverageEvaluator(CitationCoverageEvaluator):
                 "required_sources": titles,
                 "scoring_mechanism": "official_dr3",
                 "explicitly_cited": explicitly_cited,
+                "citation_resolution": citation_resolution.to_dict(),
                 "explicitly_missing": [
                     title for title in titles if title not in explicitly_cited
                 ],
@@ -146,7 +156,11 @@ class LocalCitationCoverageEvaluator(CitationCoverageEvaluator):
 class LocalFactualAccuracyEvaluator(FactualAccuracyAgentEvaluator):
     """OpenRouter/user-file adapter around the official FA prompts and scoring."""
 
-    def __init__(self, config: Optional[EvalConfig] = None):
+    def __init__(
+        self,
+        config: Optional[EvalConfig] = None,
+        citation_resolution: Optional[CitationResolution] = None,
+    ):
         config = config or EvalConfig()
         factual_accuracy_module.API_KEY = config.api_key
         factual_accuracy_module.API_BASE_URL = config.base_url
@@ -155,6 +169,7 @@ class LocalFactualAccuracyEvaluator(FactualAccuracyAgentEvaluator):
         factual_accuracy_module.GPT5_MODEL = config.model_name
         super().__init__(config)
         self.local_config = config
+        self.citation_resolution = citation_resolution
         self.source_visual_audit: List[Dict] = []
         self.api_client = OpenAI(
             api_key=config.api_key,
@@ -166,7 +181,14 @@ class LocalFactualAccuracyEvaluator(FactualAccuracyAgentEvaluator):
 
     def evaluate(self, result_text: str, **kwargs) -> EvalResult:
         self.source_visual_audit = []
-        result = super().evaluate(result_text=result_text, **kwargs)
+        effective_text = result_text
+        if self.citation_resolution is not None:
+            effective_text = self.citation_resolution.enrich_for_factual_accuracy(
+                result_text
+            )
+        result = super().evaluate(result_text=effective_text, **kwargs)
+        if self.citation_resolution is not None:
+            result.details["citation_resolution"] = self.citation_resolution.to_dict()
         if self.source_visual_audit:
             result.details["source_visual_preprocessing"] = self.source_visual_audit
         return result

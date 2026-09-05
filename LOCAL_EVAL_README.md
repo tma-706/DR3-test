@@ -122,6 +122,28 @@ Mỗi metric có status, score, details và thông tin cache. Quy ước:
 
 Runner in bảng IR/CC/FA/IF/DQ sau khi hoàn tất.
 
+## Citation gián tiếp trong report
+
+Lớp local hỗ trợ resolve citation đánh số mà không phụ thuộc tên heading của phần
+tài liệu tham khảo:
+
+~~~text
+Một claim trong report [1].
+
+[1]: HUD-sec8-FY25.pdf
+~~~
+
+Tên file phải khớp chính xác basename của một official user file trong dataset.
+Các dạng `[1, 2]`, `[1-3]`, Markdown footnote `[^1]`, danh sách `1. file.pdf`,
+và LaTeX `\cite{key}` + `\bibitem{key}` cũng được hỗ trợ. URL được phân loại
+riêng; URL kết thúc bằng `.pdf` không tự động được coi là user file. Nếu một entry
+có cả basename user file và URL, FA chỉ dùng basename để kiểm tra supplied data.
+
+CC vẫn giữ nguyên điểm và fallback của DR3 gốc. Resolver chỉ bổ sung
+`explicitly_cited` và chuyển citation đã resolve sang dạng `[Doc: file]` trong bộ
+nhớ trước khi gọi FA; report gốc không bị sửa. File chỉ xuất hiện trong bibliography
+nhưng không được cite trong nội dung không đủ để kích hoạt FA.
+
 ## Test local
 
 ~~~powershell

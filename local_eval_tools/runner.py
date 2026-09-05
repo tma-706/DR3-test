@@ -32,6 +32,7 @@ from local_eval_tools.adapters import (
     explicit_citations,
     list_user_files,
 )
+from local_eval_tools.citation_resolver import resolve_report_citations
 from local_eval_tools.report_preprocessor import (
     SUPPORTED_REPORT_EXTENSIONS,
     inspect_report,
@@ -264,6 +265,9 @@ def _input_signature(
         material["local_adapter_sha256"] = sha256_file(
             PROJECT_ROOT / "local_eval_tools" / "adapters.py"
         )
+        material["citation_resolver_sha256"] = sha256_file(
+            PROJECT_ROOT / "local_eval_tools" / "citation_resolver.py"
+        )
     encoded = json.dumps(material, ensure_ascii=False, sort_keys=True).encode("utf-8")
     return hashlib.sha256(encoded).hexdigest()
 
@@ -293,7 +297,14 @@ def _factual_accuracy(
                 "claim_count": 0,
             },
         )
-    result = LocalFactualAccuracyEvaluator(config).evaluate(
+    citation_resolution = resolve_report_citations(
+        report_text,
+        list_user_files(inputs.dataset_dir),
+    )
+    result = LocalFactualAccuracyEvaluator(
+        config,
+        citation_resolution=citation_resolution,
+    ).evaluate(
         result_text=report_text,
         source_folder=inputs.dataset_dir,
         case_id=inputs.task,
