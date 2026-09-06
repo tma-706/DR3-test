@@ -370,6 +370,14 @@ def test_local_fa_marks_exhausted_technical_failures_as_error(monkeypatch):
     assert result.details["status"] == "failed"
     assert result.details["technical_failure_claim_ids"] == [7]
     assert result.details["partial_score_before_error"] == 0.0
+    summary = result.details["claim_outcome_summary"]
+    assert summary["total_claims"] == 1
+    assert summary["completed_claims"] == 0
+    assert summary["technical_failure"] == {
+        "count": 1,
+        "percentage": 100.0,
+        "claim_ids": [7],
+    }
 
 
 def test_local_fa_preserves_genuine_zero(monkeypatch):
@@ -408,6 +416,13 @@ def test_local_fa_preserves_genuine_zero(monkeypatch):
 
     assert result.score == 0.0
     assert "technical_failure_claim_ids" not in result.details
+    summary = result.details["claim_outcome_summary"]
+    assert summary["unsupported"] == {
+        "count": 1,
+        "percentage": 100.0,
+        "claim_ids": [1],
+    }
+    assert summary["technical_failure"]["count"] == 0
 
 
 def test_markdown_preprocess_is_complete_and_cacheable(tmp_path: Path):

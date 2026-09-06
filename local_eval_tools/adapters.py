@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import logging
 import os
 import re
 import time
@@ -24,6 +25,9 @@ from local_eval_tools.report_preprocessor import (
     _render_clip,
     _visual_candidates,
 )
+
+
+LOGGER = logging.getLogger(__name__)
 
 
 USER_FILE_EXTENSIONS = {
@@ -97,6 +101,52 @@ def _fa_technical_failure_ids(details: Dict[str, Any]) -> List[Any]:
         if reason is not None:
             failed.append(verification.get("id"))
     return failed
+
+
+def _fa_outcome_summary(details: Dict[str, Any]) -> Dict[str, Any]:
+    """Summarize completed, unsupported, unresolved, and technical outcomes."""
+    verifications = details.get("verification_result", {}).get("verifications", [])
+    technical_ids = set(_fa_technical_failure_ids(details))
+    counts = {
+        "supported": 0,
+        "unsupported": 0,
+        "source_not_found": 0,
+        "technical_failure": 0,
+    }
+    claim_ids = {name: [] for name in counts}
+
+    for verification in verifications:
+        claim_id = verification.get("id")
+        if claim_id in technical_ids:
+            outcome = "technical_failure"
+        elif not verification.get("source_found", False):
+            outcome = "source_not_found"
+        elif verification.get("supported", False):
+            outcome = "supported"
+        else:
+            outcome = "unsupported"
+        counts[outcome] += 1
+        claim_ids[outcome].append(claim_id)
+
+    total = len(verifications)
+    completed = counts["supported"] + counts["unsupported"]
+
+    def percentage(count: int, denominator: int) -> float:
+        return round(count / denominator * 100, 2) if denominator else 0.0
+
+    summary: Dict[str, Any] = {
+        "total_claims": total,
+        "completed_claims": completed,
+        "completed_percentage": percentage(completed, total),
+        "verified_accuracy_percentage": percentage(counts["supported"], completed),
+    }
+    for outcome, count in counts.items():
+        summary[outcome] = {
+            "count": count,
+            "percentage": percentage(count, total),
+            "claim_ids": claim_ids[outcome],
+        }
+    return summary
 
 
 def _without_latex_optional_arguments(text: str) -> str:
@@ -244,6 +294,8 @@ class LocalFactualAccuracyEvaluator(FactualAccuracyAgentEvaluator):
             result.details["source_visual_preprocessing"] = self.source_visual_audit
         if self.fa_retry_audit:
             result.details["local_retry_audit"] = self.fa_retry_audit
+        outcome_summary = _fa_outcome_summary(result.details)
+        result.details["claim_outcome_summary"] = outcome_summary
         technical_failure_ids = _fa_technical_failure_ids(result.details)
         if technical_failure_ids:
             partial_score = result.score
@@ -258,6 +310,20 @@ class LocalFactualAccuracyEvaluator(FactualAccuracyAgentEvaluator):
                     "technical_failure_claim_ids": technical_failure_ids,
                     "partial_score_before_error": partial_score,
                 }
+            )
+            LOGGER.warning(
+                "FA incomplete after retries: %d/%d supported (%.2f%%), "
+                "%d unsupported (%.2f%%), %d source-not-found (%.2f%%), "
+                "%d technical failures (%.2f%%)",
+                outcome_summary["supported"]["count"],
+                outcome_summary["total_claims"],
+                outcome_summary["supported"]["percentage"],
+                outcome_summary["unsupported"]["count"],
+                outcome_summary["unsupported"]["percentage"],
+                outcome_summary["source_not_found"]["count"],
+                outcome_summary["source_not_found"]["percentage"],
+                outcome_summary["technical_failure"]["count"],
+                outcome_summary["technical_failure"]["percentage"],
             )
         return result
 
